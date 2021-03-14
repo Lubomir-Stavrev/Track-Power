@@ -1,0 +1,18 @@
+.siteWrapper {
+    background-color: #ffffff;
+    width: 80%;
+    margin: auto;
+    border: #59c4e1 2px solid;
+    border-radius: 25px;
+    padding: 20px 20px;
+    border: #20232a 2px solid;
+}
+
+.siteWrapper:hover {
+    border: #59c4e1 3px solid;
+}
+
+.centerAll {
+    text-align: center;
+    justify-content: center;
+}

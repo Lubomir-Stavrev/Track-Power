@@ -1,0 +1,60 @@
+.bigCenteredTitle {
+    text-align: center;
+    font-size: 3rem;
+    color: #ffffff;
+    font-weight: 2;
+}
+
+.siteHeader {
+    margin: 0;
+    text-align: center;
+    background-color: #20232a;
+    border: #20232a 1px solid;
+    margin-bottom: 5%;
+}
+
+.siteHeader h1 {
+    margin: 1%;
+    text-align: center;
+}
+
+.siteHeader h1:hover {
+    cursor: pointer;
+    margin: 1%;
+    text-align: center;
+    color: #59c4e1;
+}
+
+.siteHeader a:hover {
+    text-decoration: none;
+}
+
+.headName {
+    text-align: right;
+    float: right;
+}
+
+.headName:link {
+    list-style: none;
+}
+
+#authOptions {
+    float: right;
+    margin-top: -80px;
+}
+
+#authOptions ul {
+    display: inline-flex;
+}
+
+#authOptions ul li a {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+#authOptions ul li a:hover {
+    margin-right: 10px;
+    font-size: 1.3rem;
+    color: #59c4e1;
+}

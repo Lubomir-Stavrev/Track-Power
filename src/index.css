@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+.defaultButton {
+    border: 2px solid #61dafb;
+    background-color: #20232a;
+    color: #61dafb;
+    padding: 5px 20px;
+    font-size: 1.5rem;
+    margin: 30px;
+}
+
+.defaultButton:hover {
+    padding: 5px 30px;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.defaultButton:hover .buttonArrow {
+    animation: none;
+    -webkit-animation: none;
+}
+
+.defaultButton:not(hover) .buttonArrow {
+    animation: mymoveOut 1s infinite;
+    -webkit-animation: mymoveOut 1s infinite;
+}
+
+@keyframes mymoveOut {
+    from {
+        padding-left: 1px;
+    }
+    to {
+        padding-left: 15px;
+    }
+}
+
+@keyframes mymove {
+    from {
+        padding-left: 0px;
+    }
+    to {
+        padding-left: 20px;
+    }
+}
+
+.bigCenteredText {
+    text-align: center;
+    font-size: 3rem;
+    color: #20232a;
+    font-weight: 2;
+    margin-bottom: 3%;
+}
+
+p {
+    margin: auto;
+    text-align: center;
+    color: #000000;
+    width: 90%;
+    padding: 1%;
+}
