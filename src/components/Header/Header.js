@@ -6,7 +6,7 @@ import style from './Header.module.css'
 
 function isAuth() {
 
-    return localStorage.getItem('name') ? true : false;
+    return localStorage.getItem('auth') ? true : false;
 }
 class Header extends Component {
 
@@ -39,7 +39,7 @@ class Header extends Component {
                                     </li>
                                 </Fragment> :
                                 <li>
-                                    <a href="logout">Logout</a>
+                                    <a href="logout" onClick={localStorage.removeItem('auth')}>Logout</a>
                                 </li>
                             }
 

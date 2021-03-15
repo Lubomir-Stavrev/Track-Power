@@ -55,20 +55,14 @@ a:active {
 }
 
 @keyframes mymoveOut {
-    from {
+    0% {
         padding-left: 1px;
     }
-    to {
+    50% {
         padding-left: 15px;
     }
-}
-
-@keyframes mymove {
-    from {
-        padding-left: 0px;
-    }
-    to {
-        padding-left: 20px;
+    100% {
+        padding-left: 1px;
     }
 }
 
@@ -78,6 +72,7 @@ a:active {
     color: #20232a;
     font-weight: 2;
     margin-bottom: 3%;
+    position: relative;
 }
 
 p {
