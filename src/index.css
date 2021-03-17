@@ -1,12 +1,29 @@
 body {
     margin: 0;
-    font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    text-align: center;
+    color: #fff;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: "Raleway";
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+.overflowWrap {
+    overflow-x: hidden;
+    z-index: 100;
+}
+
+.modalWrap {
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    z-index: 100;
+}
+
+.flex {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 100;
 }
 
 a:link {
@@ -36,6 +53,7 @@ a:active {
     padding: 5px 20px;
     font-size: 1.5rem;
     margin: 30px;
+    z-index: 100;
 }
 
 .defaultButton:hover {

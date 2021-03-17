@@ -29,10 +29,10 @@ export default () => {
             <form className={style.formDefault} onSubmit={(e) => handleLogin(e)}>
 
                 <label>Email</label>
-                <input className={style.inputDefault} name="login-Email" placeholder="example@email.com" type="text" />
+                <input className={style.inputDefault} id="login-Email" placeholder="example@email.com" type="text" />
                 <br />
                 <label>Password</label>
-                <input type="password" name="login-Password" className={style.inputDefault} />
+                <input type="password" id="login-Password" className={style.inputDefault} />
                 <br />
                 <button className="defaultButton" type="submit">Login</button>
             </form>

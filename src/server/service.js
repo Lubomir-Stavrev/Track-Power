@@ -6,12 +6,11 @@ const usersURL = 'https://myownspa-default-rtdb.europe-west1.firebasedatabase.ap
 
 export default {
 
-    login(email, password) {
+    async login(email, password) {
 
-        return userModel.signInWithEmailAndPassword(email, password)
-            .then(function (data) {
-                console.log(data)
-                localStorage.setItem('auth', JSON.stringify({ uid: data.user.uid, email }));
+        return await userModel.signInWithEmailAndPassword(email, password)
+            .then(async function (data) {
+                return await localStorage.setItem('auth', JSON.stringify({ uid: data.user.uid, email }));
             }).catch(err => {
                 return 'Error';
             })

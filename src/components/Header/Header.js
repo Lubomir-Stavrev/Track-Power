@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import React, { Component } from "react";
 import style from './Header.module.css'
 
+import { NavLink, Link } from "react-router-dom";
 
 
 function isAuth() {
@@ -20,10 +21,12 @@ class Header extends Component {
 
 
                 <header className={style.siteHeader}>
-                    <a href="/">
-
+                    <Link to="/">
                         <h1 className={style.bigCenteredTitle}>{this.props.children}</h1>
-                    </a>
+
+                    </Link>
+
+
 
                     <div id={style.authOptions}>
                         <ul>
@@ -32,10 +35,17 @@ class Header extends Component {
                                 <Fragment>
 
                                     <li>
-                                        <a onClick="" href="/login">Login</a>
+                                        <Link to="/login">
+                                            login
+                                        </Link>
+
+
                                     </li>
                                     <li>
-                                        <a href="/register">Register</a>
+                                        <Link to="/register">
+                                            Register
+                                        </Link>
+
                                     </li>
                                 </Fragment> :
                                 <li>

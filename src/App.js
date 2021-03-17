@@ -1,4 +1,4 @@
-import { Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import history from './components/history';
 
 
@@ -17,14 +17,13 @@ function App() {
         <Fragment>
 
             <div>
-                <Header>Track Power</Header>
-                <Router history={history}>
-                    <Switch>
-                        <Route path="/" exact component={Home} />
-                        <Route path="/login" exact component={Login} />
-                        <Route path="/Register" exact component={Register} />
-                    </Switch>
-                </Router>
+
+
+                <Switch>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/login" exact component={Login} />
+                    <Route path="/Register" exact component={Register} />
+                </Switch>
             </div>
 
         </Fragment>
