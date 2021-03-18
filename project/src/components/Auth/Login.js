@@ -1,13 +1,14 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+import history from '../history'
 
 import style from './Auth.module.css'
-
 import service from '../../server/service';
 
 export default () => {
 
     function handleLogin(e) {
-
+        e.preventDefault();
         let email = document.getElementById('login-Email');
         let password = document.getElementById('login-Password');
 
@@ -17,14 +18,16 @@ export default () => {
         service.login(email.value, password.value)
             .then(res => {
                 if (res == 'Error') {
+                    console.log(res)
                     return;
                 }
+                return history.push("/");
 
             })
     }
 
     return (
-        <div className="site-Wrapper" >
+        <div className={style.authWrapper}>
 
             <form className={style.formDefault} onSubmit={(e) => handleLogin(e)}>
 
@@ -35,6 +38,13 @@ export default () => {
                 <input type="password" id="login-Password" className={style.inputDefault} />
                 <br />
                 <button className="defaultButton" type="submit">Login</button>
+                <br />
+
+                <Link to="/register" className={style.authRedirect}>
+                    <span>Don't have an account yet?</span>
+                </Link>
+
+
             </form>
         </div>
     );

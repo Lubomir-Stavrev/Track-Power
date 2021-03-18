@@ -12,6 +12,7 @@ body {
     position: absolute;
     font-family: "Raleway";
     overflow: hidden;
+    z-index: 0;
 }
 
 .lines {
@@ -108,67 +109,10 @@ body {
     font-family: "Raleway-semibold";
 }
 
-.button {
-    padding: 12px 50px 12px 20px;
-    margin-bottom: 23px;
-    margin-top: 15px;
-    position: relative;
-    font-size: 16pt;
-    box-sizing: inherit;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    border: 2px solid #fff;
-    cursor: pointer;
-    display: inline-block;
-    z-index: 1;
-}
-
-.arrow {
-    border: solid #fff;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 4px;
-    z-index: 1;
-    margin-left: 10px;
-    margin-right: -20px;
-}
-
 .right {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
-}
-
-.button:hover .right {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-    -webkit-transition-duration: 0.3s;
-    -moz-transition-duration: 0.3s;
-    -o-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -ms-transform: rotate(45deg);
-}
-
-.button:hover {
-    background-color: #04c2c9;
-    border-color: #04c2c9;
-}
-
-.button:not(:hover) .right {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    -webkit-transition-duration: 0.3s;
-    -moz-transition-duration: 0.3s;
-    -o-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -ms-transform: rotate(-45deg);
 }

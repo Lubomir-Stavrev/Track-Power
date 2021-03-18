@@ -1,13 +1,13 @@
 import React from 'react'
-
+import { Link } from "react-router-dom";
+import history from '../history'
 import style from './Auth.module.css'
-
 import service from '../../server/service';
 
 export default () => {
 
     function handleRegister(e) {
-
+        e.preventDefault();
         let email = document.getElementById('register-Email');
         let password = document.getElementById('register-Password');
         let rePassword = document.getElementById('register-RePassword');
@@ -24,16 +24,17 @@ export default () => {
         }
         service.register(email.value, password.value)
             .then(res => {
-                if (res == 'Error') {
-
+                if (res) {
+                    console.log(res);
                     return;
                 }
+                history.push('/login')
 
             })
     }
 
     return (
-        <div className="site-Wrapper" >
+        <div className={style.authWrapper} >
 
             <form className={style.formDefault} onSubmit={(e) => handleRegister(e)}>
 
@@ -46,7 +47,13 @@ export default () => {
                 <label>Repeat Password</label>
                 <input type="password" id="register-RePassword" className={style.inputDefault} />
                 <br />
+
                 <button className="defaultButton" type="submit">Register</button>
+
+                <br />
+                <Link to="/login" className={style.authRedirect}>
+                    <span>Already have an account?</span>
+                </Link>
             </form>
         </div>
     );

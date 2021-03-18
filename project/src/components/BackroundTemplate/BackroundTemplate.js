@@ -1,8 +1,9 @@
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
 
-import style from './Home.module.css'
 
-class Home extends Component {
+import style from './BackroundTemplate.module.css'
+
+class BackroundTemplate extends Component {
 
     constructor(props) {
         super(props)
@@ -22,15 +23,7 @@ class Home extends Component {
                             <div className={style.line}></div>
                         </div>
                         <div className={style.flex}>
-                            <div className={style.title}>
-                                Welcom to<span className={style.highlight}> Track Power</span>.
-                            </div>
-                            <div>
-                                <button className="defaultButton">
-                                    Get Started
-                                <i className="buttonArrow">➤</i>
-                                </button>
-                            </div>
+                            {this.props.children}
                         </div>
                     </section>
 
@@ -41,4 +34,4 @@ class Home extends Component {
 
 }
 
-export default Home;
+export default BackroundTemplate;

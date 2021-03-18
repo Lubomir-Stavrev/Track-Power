@@ -10,9 +10,10 @@ export default {
 
         return await userModel.signInWithEmailAndPassword(email, password)
             .then(async function (data) {
-                return await localStorage.setItem('auth', JSON.stringify({ uid: data.user.uid, email }));
+
+                localStorage.setItem('auth', JSON.stringify({ uid: data.user.uid, email }));
             }).catch(err => {
-                return 'Error';
+                return err;
             })
     },
     async register(email, password) {
@@ -28,7 +29,7 @@ export default {
                 })
             }).catch(err => {
 
-                return 'Error';
+                return err;
             })
     },
 }
