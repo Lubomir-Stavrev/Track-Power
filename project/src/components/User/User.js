@@ -18,16 +18,10 @@ function User(props) {
 
         <Fragment>
 
-            <div className={style.title}>
-                Welcom <span className={style.highlight}>{getEmail()}</span>.
+            <div className={style.userTitle}>
+                Welcom <span className={style.highlightUser}>{getEmail()}</span>.
             </div>
             <div>
-
-                <Link to="/">
-                    <button onClick={(e) => signOut(e)} className="defaultButton">
-                        Logout
-                        </button>
-                </Link>
 
             </div>
         </Fragment>

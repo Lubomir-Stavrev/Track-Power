@@ -5,60 +5,49 @@ import style from './Header.module.css'
 import { NavLink, Link } from "react-router-dom";
 
 
-function isAuth() {
-
-    return localStorage.getItem('auth') ? true : false;
-}
 class Header extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
 
+        this.state = { displayPhase: "none" }
     }
+
+
     render() {
         return (
             <Fragment>
+                <header id={style.header}>
+                    <div className={style.barsContainer} onClick={(e) =>
+                        this.state.displayPhase == 'none' ? this.setState({ displayPhase: "block" }) :
+                            this.setState({ displayPhase: "none" })}>
+                        <div className={style.bar1}></div>
+                        <div className={style.bar2}></div>
+                        <div className={style.bar3}></div>
+                    </div>
+                    <div className={style.dropDownContant} style={{ display: this.state.displayPhase }}>
+                        <Link to="/">Home</Link>
+                        <br />
+                        {localStorage.getItem('auth')
+                            ?
+                            <Fragment>
 
+                                <Link to="/logout">Logout</Link>
+                            </Fragment>
 
-                <header className={style.siteHeader}>
-                    <Link to="/">
-                        <h1 className={style.bigCenteredTitle}>{this.props.children}</h1>
-
-                    </Link>
-
-
-
-                    <div id={style.authOptions}>
-                        <ul>
-
-                            {!isAuth() ?
-                                <Fragment>
-
-                                    <li>
-                                        <Link to="/login">
-                                            login
-                                        </Link>
-
-
-                                    </li>
-                                    <li>
-                                        <Link to="/register">
-                                            Register
-                                        </Link>
-
-                                    </li>
-                                </Fragment> :
-                                <li>
-                                    <a href="logout" onClick={localStorage.removeItem('auth')}>Logout</a>
-                                </li>
-                            }
-
-                        </ul>
+                            :
+                            <Fragment>
+                                <Link to="/login">Login</Link>
+                                <br />
+                                <Link to="/register">Register</Link>
+                            </Fragment>
+                        }
 
                     </div>
 
-                </header >
-            </Fragment>
+                </header>
+
+            </Fragment >
         );
     }
 
