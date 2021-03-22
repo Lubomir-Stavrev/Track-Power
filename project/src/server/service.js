@@ -32,4 +32,12 @@ export default {
                 return err;
             })
     },
+    isLogged() {
+
+        if (localStorage.getItem('auth')) {
+            return true;
+        }
+        return false;
+    },
+    signOut() { localStorage.removeItem('auth'); }
 }
