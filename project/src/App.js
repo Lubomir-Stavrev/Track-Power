@@ -8,7 +8,7 @@ import BackroundTemplate from './components/BackroundTemplate/BackroundTemplate'
 import Home from './components/Home/Home';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
-import User from './components/User/User'
+import Profile from './components/Profile/Profile'
 import Header from './components/Header/Header'
 
 
@@ -23,7 +23,7 @@ function App() {
                     <Route path="/" exact component={Home} />
                     <Route path="/login" exact component={Login} />
                     <Route path="/register" exact component={Register} />
-                    <Route path="/userProfile" exact component={User} />
+                    <Route path="/userProfile" component={Profile} />
                 </Switch>
 
 

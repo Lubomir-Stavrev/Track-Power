@@ -8,21 +8,22 @@ export default () => {
 
     function handleRegister(e) {
         e.preventDefault();
-        let email = document.getElementById('register-Email');
-        let password = document.getElementById('register-Password');
-        let rePassword = document.getElementById('register-RePassword');
 
-        if (password.value != rePassword.value) {
+        let registerEmail = e.target.email;
+        let registerPassword = e.target.password;
+        let registerRePassword = e.target.rePassword;
 
-            password.value = '';
-            rePassword.value = '';
+        if (registerPassword.value != registerRePassword.value) {
+
+            registerPassword.value = '';
+            registerRePassword.value = '';
             return;
         }
-        if (password.value.length < 6) {
+        if (registerPassword.value.length < 6) {
 
             return;
         }
-        service.register(email.value, password.value)
+        service.register(registerEmail.value, registerPassword.value)
             .then(res => {
                 if (res) {
                     console.log(res);
@@ -38,14 +39,14 @@ export default () => {
 
             <form className={style.formDefault} onSubmit={(e) => handleRegister(e)}>
 
-                <label>Email</label>
-                <input className={style.inputDefault} id="register-Email" placeholder="example@email.com" type="email" />
+                <label htmlFor="email">Email</label>
+                <input className={style.inputDefault} name="email" placeholder="example@email.com" type="email" />
                 <br />
                 <label>Password</label>
-                <input type="password" id="register-Password" className={style.inputDefault} />
+                <input type="password" name="password" className={style.inputDefault} />
                 <br />
                 <label>Repeat Password</label>
-                <input type="password" id="register-RePassword" className={style.inputDefault} />
+                <input type="password" name="rePassword" className={style.inputDefault} />
                 <br />
 
                 <button className="defaultButton" type="submit">Register</button>

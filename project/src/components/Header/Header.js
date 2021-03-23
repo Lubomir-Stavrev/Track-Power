@@ -53,7 +53,7 @@ class Header extends Component {
                         {this.state.isAuthenticated
                             ?
                             <Fragment>
-                                <Link to="/userProfile">Profile</Link>
+                                <Link to="/userProfile/logs">Profile</Link>
                                 <br />
 
                                 <Link to="/" onClick={(e) => this.logout()}>Logout</Link>

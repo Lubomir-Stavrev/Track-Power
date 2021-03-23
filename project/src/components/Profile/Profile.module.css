@@ -47,16 +47,18 @@
 }
 
 .dumbellLogo {
+    color: white;
     font-size: 35pt;
-    margin-right: 20%;
+    margin-left: 20%;
     margin-top: -3%;
     display: inline-block;
     cursor: pointer;
 }
 
 .pencilLogo {
+    color: white;
     font-size: 35pt;
-    margin-left: 20%;
+    margin-right: 20%;
     margin-top: -3%;
     display: inline-block;
     cursor: pointer;
@@ -94,4 +96,31 @@
 .workoutName {
     float: right;
     margin-left: 30%;
+}
+
+#addRoutine {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 7%;
+    margin-left: 2%;
+}
+
+#addRoutine span {
+    color: #59c4e1;
+    border: #59c4e1 1px solid;
+    border-radius: 1000px;
+    -webkit-border-radius: 1000px;
+    -moz-border-radius: 1000px;
+    -ms-border-radius: 1000px;
+    -o-border-radius: 1000px;
+    font-size: 3rem;
+    padding: 0px 25px 0px;
+    float: right;
+    cursor: pointer;
+}
+
+#addRoutine span:hover {
+    color: #202020;
+    border: #202020 2px solid;
+    background: #59c4e1;
 }

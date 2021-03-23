@@ -20,7 +20,7 @@ function Home(props) {
                             </div>
             <div>
                 {isLogged ?
-                    <Link to="/userProfile">
+                    <Link to="/userProfile/logs">
                         <button className="defaultButton">
                             Get Started
                                 <i className="buttonArrow">➤</i>
