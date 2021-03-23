@@ -43,6 +43,7 @@ body {
     -moz-transform: rotate(52deg);
     -ms-transform: rotate(52deg);
     -o-transform: rotate(52deg);
+    z-index: -100;
 }
 
 .line {

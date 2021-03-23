@@ -27,32 +27,96 @@ const User = ({
                 </div>
 
                 <div id={userStyle.profileMain}>
-                    <table>
-                        <tr>
-                            <th>Company</th>
-                            <th>Contact</th>
-                            <th>Country</th>
-                        </tr>
-                        <tr>
-                            <td>Alfreds Futterkiste</td>
-                            <td>Maria Anders</td>
-                            <td>Germany</td>
-                        </tr>
-                        <tr>
-                            <td>Centro comercial Moctezuma</td>
-                            <td>Francisco Chang</td>
-                            <td>Mexico</td>
-                        </tr>
-                    </table>
+                    <div className={userStyle.logContainer}>
+                        <div className={userStyle.date}>
+                            <h1>
+                                Friday 31
+                            </h1>
+                        </div>
+                        <div className={userStyle.workoutName}>
+                            <h1>
+                                Workout (A)
+                            </h1>
+                        </div>
+                    </div>
+                    <div className={userStyle.logContainer}>
+                        <div className={userStyle.date}>
+                            <h1>
+                                Friday 31
+                            </h1>
+                        </div>
+                        <div className={userStyle.workoutName}>
+                            <h1>
+                                Workout (A)
+                            </h1>
+                        </div>
+                    </div>
+                    <div className={userStyle.logContainer}>
+                        <div className={userStyle.date}>
+                            <h1>
+                                Friday 31
+                            </h1>
+                        </div>
+                        <div className={userStyle.workoutName}>
+                            <h1>
+                                Workout (A)
+                            </h1>
+                        </div>
+                    </div>
+                    <div className={userStyle.logContainer}>
+                        <div className={userStyle.date}>
+                            <h1>
+                                Friday 31
+                            </h1>
+                        </div>
+                        <div className={userStyle.workoutName}>
+                            <h1>
+                                Workout (A)
+                            </h1>
+                        </div>
+                    </div>
+                    <div className={userStyle.logContainer}>
+                        <div className={userStyle.date}>
+                            <h1>
+                                Friday 31
+                            </h1>
+                        </div>
+                        <div className={userStyle.workoutName}>
+                            <h1>
+                                Workout (A)
+                            </h1>
+                        </div>
+                    </div>
+                    <div className={userStyle.logContainer}>
+                        <div className={userStyle.date}>
+                            <h1>
+                                Friday 31
+                            </h1>
+                        </div>
+                        <div className={userStyle.workoutName}>
+                            <h1>
+                                Workout (A)
+                            </h1>
+                        </div>
+                    </div>
+                    <div className={userStyle.logContainer}>
+                        <div className={userStyle.date}>
+                            <h1>
+                                Friday 31
+                            </h1>
+                        </div>
+                        <div className={userStyle.workoutName}>
+                            <h1>
+                                Workout (A)
+                            </h1>
+                        </div>
+                    </div>
                 </div>
 
                 <div id={userStyle.navContainer}>
-                    <div id={userStyle.iconsContainer}>
-                        <i className={'fas ' + userStyle.dumbellLogo}>&#xf44b;</i>
-                        <i className={userStyle.pencilLogo}>✎</i>
 
-
-                    </div>
+                    <i className={'fas ' + userStyle.dumbellLogo}>&#xf44b;</i>
+                    <i className={userStyle.pencilLogo}>✎</i>
                 </div>
             </div>
         </Fragment>
