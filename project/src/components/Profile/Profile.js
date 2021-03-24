@@ -8,6 +8,8 @@ import ProfileRoutines from './ProfileRoutines'
 import addRoutine from './addRoutine'
 import services from '../../server/service'
 
+import addExercise from './addExercise'
+
 const Profile = ({
     props,
 }) => {
@@ -33,6 +35,8 @@ const Profile = ({
                         <Route path="/userProfile/logs" exact component={ProfileLogs} />
                         <Route path="/userProfile/routines" exact component={ProfileRoutines} />
                         <Route path="/userProfile/addRoutine" exact component={addRoutine} />
+                        <Route path="/userProfile/addExercise" exact component={addExercise} />
+
                     </Switch>
 
                 </div>

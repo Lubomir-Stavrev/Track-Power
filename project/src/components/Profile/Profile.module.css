@@ -124,3 +124,54 @@
     border: #202020 2px solid;
     background: #59c4e1;
 }
+
+.addExerciseForm {
+    text-align: center;
+}
+
+.addExerciseForm input {
+    width: 60%;
+    font-size: 15pt;
+    margin: 2%;
+    border: 2px solid #202020;
+    background-color: rgba(89, 196, 225, 0.1);
+    color: #59c4e1;
+    outline: none;
+}
+
+.addExerciseForm input:focus {
+    border: 2px solid #59c4e1;
+}
+
+.saveButton {
+    background-color: #202020;
+    border: 2px solid #59c4e1;
+    color: #59c4e1;
+    font-size: 16pt;
+    padding: 3pt 25pt 3pt;
+    cursor: pointer;
+}
+
+.saveButton:hover {
+    animation: hover 0.6s ease-in-out;
+    -webkit-animation: hover 0.6s ease-in-out;
+}
+
+@keyframes hover {
+    0% {
+        background-color: #202020;
+        border: 2px solid #59c4e1;
+        color: #59c4e1;
+    }
+    50% {
+        background-color: #59c4e1;
+        border: 2px solid #202020;
+        color: #202020;
+    }
+    75% {
+        padding: 5pt 35pt 5pt;
+    }
+    100% {
+        padding: 3pt 30pt 3pt;
+    }
+}
