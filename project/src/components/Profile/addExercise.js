@@ -1,26 +1,54 @@
-import { Fragment } from "react";
+import React, { Component, Fragment } from "react";
+
 import profileStyle from '../Profile/Profile.module.css'
 import { Switch, Route, Link } from "react-router-dom";
+import history from '../history'
 
-export default () => {
+export default class extends Component {
+    constructor(props) {
+        super(props);
 
-    return (
-        <Fragment>
-            <form className={profileStyle.addExerciseForm}>
-                <input type="text" name="exerciseName" placeholder="Exercise Name" />
-                <br />
-                <input type="number" name="sets" placeholder="Sets" />
-                <br />
-                <Link to="/userProfile/addExercise">
+        this.state = {
+            exercises: [],
+        }
+        this.addExercise = this.addExercise.bind(this);
+    }
+    addExercise(e) {
+        e.preventDefault();
+        let exerciseName = e.target.exerciseName.value;
+        let sets = e.target.sets.value;
+
+        let allExercises = this.state.exercises;
+        allExercises.push({ exerciseName, sets })
+
+        this.props.onAddingExercise(allExercises);
+        return history.push("/userProfile/addRoutine");
+
+    }
+    render() {
+        const exercises = this.state.exercises;
+        console.log(this.props)
+        return (
+            <Fragment>
+                <form onSubmit={(e) => this.addExercise(e)} className={profileStyle.addExerciseForm}>
+                    <input type="text" name="exerciseName" placeholder="Exercise Name" />
+                    <br />
+                    <input type="number" name="sets" placeholder="Sets" />
+                    <br />
+
                     <button
                         type="submit"
-                        className="defaultButton" >
-                        Ok
+                        className="defaultButton"
+                    >
+                        Add
                 </button>
-                </Link>
 
-            </form>
 
-        </Fragment>
-    );
+
+
+                </form>
+
+            </Fragment>
+        );
+    }
 }
