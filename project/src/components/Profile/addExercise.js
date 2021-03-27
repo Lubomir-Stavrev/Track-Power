@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 
 import profileStyle from '../Profile/Profile.module.css'
-import { Switch, Route, Link } from "react-router-dom";
 import history from '../history'
 
 export default class extends Component {

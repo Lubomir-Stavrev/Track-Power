@@ -1,14 +1,11 @@
 import { Fragment, useState, useEffect } from 'react';
 import profileStyle from '../Profile/Profile.module.css'
-import { Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import services from '../../server/service'
+import history from '../history'
 
 
-
-export default ({
-    props,
-    onAddingRoutineProps,
-    routineProps
-}) => {
+export default ({ props, onAddingRoutineProps, routineProps }) => {
     const [allExercises, setExercise] = useState({});
     const [routineName, setRoutineName] = useState('');
     const [routineNotes, setRoutineNotes] = useState('');
@@ -31,14 +28,22 @@ export default ({
         } else if (e.target.name == 'notes') {
             setRoutineNotes(e.target.value)
         }
-
         onAddingRoutineProps(routineName, routineNotes);
+    }
 
+    function saveRoutine(e) {
+        e.preventDefault();
+
+        services.addRoutine(routineName, routineNotes, allExercises)
+            .then(res => {
+                return history.push("/userProfile/routines");
+            }).catch(err => {
+                return <h1>An error has accured please try again</h1>;
+                console.log(err);
+            });
     }
     return (
-
         <Fragment>
-
             <form className={profileStyle.addExerciseForm} >
                 <input
                     type="text"
@@ -49,7 +54,7 @@ export default ({
                 <br />
                 <input type="text" value={routineNotes} name="notes" onChange={(e) => handleRoutineChange(e)} placeholder="Notes" />
                 <br />
-                <button type="submit" className={profileStyle.saveButton}>Save</button>
+                <button type="button" onClick={(e) => saveRoutine(e)} className={profileStyle.saveButton}>Save</button>
                 <br />
                 <hr />
 

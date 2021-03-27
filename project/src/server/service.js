@@ -2,6 +2,8 @@ import userModel from './setFireBase'
 
 const addKeyForAuth = 'AIzaSyCKJc85IX3FGMfxT3eZHehnQbRZ1N34WVs';
 const usersURL = 'https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/users.json';
+const db = 'https://track-power-default-rtdb.firebaseio.com/.json';
+
 
 export default {
 
@@ -37,5 +39,25 @@ export default {
         }
         return false;
     },
-    signOut() { localStorage.removeItem('auth'); }
+    signOut() { localStorage.removeItem('auth'); },
+
+    addRoutine(routineName, routineNotes, routineExercises) {
+
+        return fetch(db, {
+            method: 'POST',
+            body: JSON.stringify({
+                routineName,
+                routineNotes,
+                routineExercises,
+                uid: localStorage.getItem('auth').uid
+            })
+        }).then(res => res.json());
+    },
+    async getAllRoutines() {
+
+        let allRoutines = await fetch(db).then(res => res.json()).then(data => { return data });
+
+        return await allRoutines
+
+    }
 }
