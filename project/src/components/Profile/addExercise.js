@@ -26,8 +26,8 @@ export default class extends Component {
 
     }
     render() {
-        const exercises = this.state.exercises;
-        console.log(this.props)
+
+
         return (
             <Fragment>
                 <form onSubmit={(e) => this.addExercise(e)} className={profileStyle.addExerciseForm}>

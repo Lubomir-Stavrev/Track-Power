@@ -16,6 +16,7 @@ const Profile = ({
 
     const [isAuthenticated, setIsAuthenticated] = useState(services.isLogged());
     const [allExercises, setExercise] = useState([]);
+    const [routineProps, setRoutineProps] = useState([]);
     function getEmail() {
 
         return JSON.parse(localStorage.getItem('auth'))
@@ -25,14 +26,17 @@ const Profile = ({
 
     function handleAddingExercise(exercise) {
         let all = allExercises;
-        all.push(exercise)
-        console.log(all, 'HELLO FROM ALLL !!!')
-        setExercise(all)
+        all.push(exercise);
+        setExercise(all);
     }
+
+    function handleAddingRoutineProps(name, notes) {
+
+        setRoutineProps([name, notes]);
+    }
+
     return (
         <Fragment>
-            {console.log(allExercises)}
-
             <div id={profileStyle.profileWrapper}>
 
                 <div className={style.userTitle}>
@@ -48,7 +52,13 @@ const Profile = ({
                         </Route>
 
                         <Route path="/userProfile/AddRoutine" exact >
-                            <AddRoutine props={allExercises}></AddRoutine>
+                            <AddRoutine
+                                onAddingRoutineProps={handleAddingRoutineProps}
+                                routineProps={routineProps}
+                                props={allExercises}
+                            >
+
+                            </AddRoutine>
                         </Route>
                     </Switch>
 
@@ -60,8 +70,6 @@ const Profile = ({
                         <Link to="/userProfile/logs" className={profileStyle.pencilLogo}>
                             ✎
                         </Link>
-
-
                     </i>
                     <i >
                         <Link to="/userProfile/routines" className={'fas ' + profileStyle.dumbellLogo}>
@@ -71,8 +79,6 @@ const Profile = ({
                 </div>
             </div>
         </Fragment>
-
-
     );
 }
 
