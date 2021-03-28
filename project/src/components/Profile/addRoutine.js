@@ -5,16 +5,20 @@ import services from '../../server/service'
 import history from '../history'
 
 
-export default ({ props, onAddingRoutineProps, routineProps }) => {
+export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
     const [allExercises, setExercise] = useState({});
     const [routineName, setRoutineName] = useState('');
     const [routineNotes, setRoutineNotes] = useState('');
+    const [isSaved, setIsSaved] = useState(false);
+
     useEffect(() => {
 
         console.log('Hello again !');
+
         setExercise(props);
         setRoutineName(routineProps[0]);
         setRoutineNotes(routineProps[1]);
+
         return () => {
             console.log('bye bye')
         }
@@ -33,13 +37,14 @@ export default ({ props, onAddingRoutineProps, routineProps }) => {
 
     function saveRoutine(e) {
         e.preventDefault();
-
         services.addRoutine(routineName, routineNotes, allExercises)
             .then(res => {
+
+                onSaving();
                 return history.push("/userProfile/routines");
             }).catch(err => {
-                return <h1>An error has accured please try again</h1>;
                 console.log(err);
+                return <h1>An error has accured please try again</h1>;
             });
     }
     return (
@@ -61,7 +66,7 @@ export default ({ props, onAddingRoutineProps, routineProps }) => {
                 <div>
                     {Object.values(allExercises).map(el => {
                         return (
-                            <div className={profileStyle.logContainer}>
+                            <div key={el[0].id} className={profileStyle.logContainer}>
                                 <div className={profileStyle.date}>
                                     <h1>
                                         {el[0].exerciseName}

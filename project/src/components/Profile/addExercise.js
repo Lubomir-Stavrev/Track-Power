@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 
 import profileStyle from '../Profile/Profile.module.css'
 import history from '../history'
-
+import uniqid from 'uniqid'
 export default class extends Component {
     constructor(props) {
         super(props);
@@ -16,9 +16,9 @@ export default class extends Component {
         e.preventDefault();
         let exerciseName = e.target.exerciseName.value;
         let sets = e.target.sets.value;
-
+        let id = uniqid();
         let allExercises = this.state.exercises;
-        allExercises.push({ exerciseName, sets })
+        allExercises.push({ exerciseName, sets, id })
 
         this.props.onAddingExercise(allExercises);
         return history.push("/userProfile/addRoutine");

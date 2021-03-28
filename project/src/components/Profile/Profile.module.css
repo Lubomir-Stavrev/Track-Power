@@ -94,8 +94,8 @@
 }
 
 .workoutName {
-    float: right;
-    margin-left: 30%;
+    margin-left: 20%;
+    margin-right: calc(45% - 50px);
 }
 
 #addRoutine {
@@ -174,4 +174,30 @@
     100% {
         padding: 3pt 30pt 3pt;
     }
+}
+
+.routineSettings {
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    z-index: 100;
+}
+
+.deleteButton {
+    border: #202020;
+    color: #202020;
+    background: #59c4e1;
+    border-radius: 20px;
+    font-size: 15pt;
+    padding: 10px 15px 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    border: #59c4e1;
+    color: #59c4e1;
+    background: #202020;
 }
