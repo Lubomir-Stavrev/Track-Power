@@ -6,6 +6,7 @@ import profileStyle from '../Profile/Profile.module.css'
 import ProfileLogs from './ProfileLogs'
 import ProfileRoutines from './ProfileRoutines'
 import AddRoutine from './AddRoutine'
+import DoRoutine from './DoRoutine'
 import services from '../../server/service'
 
 import AddExercise from './AddExercise'
@@ -39,7 +40,10 @@ const Profile = ({
         setExercise([]);
         setRoutineProps([]);
     }
+    function getRoutineData() {
 
+        return 'Its ok men its ok'
+    }
     return (
         <Fragment>
             <div id={profileStyle.profileWrapper}>
@@ -50,6 +54,7 @@ const Profile = ({
 
                 <div id={profileStyle.profileMain}>
                     <Switch>
+                        <Route path="/userProfile/doRoutine/" component={DoRoutine} />
                         <Route path="/userProfile/logs" exact component={ProfileLogs} />
                         <Route path="/userProfile/routines" exact component={ProfileRoutines} />
                         <Route path="/userProfile/addExercise" exact >

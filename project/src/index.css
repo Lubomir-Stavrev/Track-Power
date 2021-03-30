@@ -101,3 +101,13 @@ p {
     width: 90%;
     padding: 1%;
 }
+
+.linkWithoutStyles:link {
+    text-decoration: none;
+    color: none;
+}
+
+.linkWithoutStyles {
+    text-decoration: none;
+    color: #61dafb;
+}

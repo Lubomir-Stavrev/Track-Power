@@ -49,21 +49,23 @@ export default () => {
 
             {allRoutines ? Object.entries(allRoutines).map(el => {
                 return (
-                    <div key={el[0]} className={profileStyle.logContainer}>
-                        <div className={profileStyle.workoutName}>
-                            <h1>
-                                {el[1].routineName}
-                            </h1>
-                        </div>
+                    <Link className="linkWithoutStyles" to={`/userProfile/doRoutine/${el[0]}`}>
+                        <div key={el[0]} className={profileStyle.logContainer}>
+                            <div className={profileStyle.workoutName}>
+                                <h1>
+                                    {el[1].routineName}
+                                </h1>
+                            </div>
 
-                        <div className={profileStyle.routineSettings}>
-                            <span>
-                                <a id={el[0]}>
-                                    <button type="submit" onClick={(e) => deleteRoutine(e)} className={profileStyle.deleteButton}>Delete</button>
-                                </a>
-                            </span>
+                            <div className={profileStyle.routineSettings}>
+                                <span>
+                                    <a id={el[0]}>
+                                        <button type="submit" onClick={(e) => deleteRoutine(e)} className={profileStyle.deleteButton}>Delete</button>
+                                    </a>
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 );
             }) : <h2>There are no any routines :(</h2>
             }

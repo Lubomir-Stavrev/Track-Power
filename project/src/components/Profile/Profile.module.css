@@ -201,3 +201,15 @@
     color: #59c4e1;
     background: #202020;
 }
+
+.setDiv {
+    display: block;
+}
+
+.setForm {
+    display: inline-flex;
+}
+
+.setForm input {
+    display: inline-flex;
+}

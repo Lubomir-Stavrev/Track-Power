@@ -68,5 +68,15 @@ export default {
             .catch(err => {
                 throw new Error(err);
             })
+    },
+
+    getRoutine(id) {
+        return fetch(db + id + '/.json')
+            .then(res => res.json())
+            .then(data => {
+                return data;
+            }).catch(err => {
+                throw new Error(err);
+            })
     }
 }
