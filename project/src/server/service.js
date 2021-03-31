@@ -78,5 +78,32 @@ export default {
             }).catch(err => {
                 throw new Error(err);
             })
+    },
+
+
+    setLastExercise(exercises, id) {
+        return fetch(db + id + '/lastWorkout/.json', {
+            method: 'PATCH',
+            body: JSON.stringify({
+                exercises
+            })
+        }).then(res => res.json())
+            .then(data => {
+                return data;
+            }).catch(err => { throw new Error(err) })
+
+
+    },
+    saveExercises(exercises, id) {
+        return fetch(db + id + '/.json', {
+            method: 'POST',
+            body: JSON.stringify({
+                exercises
+            })
+        }).then(res => res.json())
+            .then(data => {
+                return data;
+            }).catch(err => { throw new Error(err) })
+
     }
 }

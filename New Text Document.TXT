@@ -2,3 +2,11 @@ Next get the home component and remove the not reuseable code.
 Get the left part and made it like a template so it can be used with the login and register page.
 
 <-- Reason- Preventing copy pasting the same code into more files -->
+
+
+ TO DO:
+
+ -Fixing some html element so they can be undepentable from the other elements.
+ -Edit routine feture.
+ -Start routine and than save it in the log page.
+ -Do some authorizations here and there.

@@ -81,6 +81,7 @@
     background: rgba(89, 196, 225, 0.05);
     margin: 10pt;
     width: 85%;
+    position: relative;
 }
 
 .logContainer:hover {
@@ -89,13 +90,13 @@
 }
 
 .date {
-    margin-right: 4%;
-    margin-left: 5%;
+    position: absolute;
+    right: 10%;
 }
 
 .workoutName {
-    margin-left: 20%;
-    margin-right: calc(45% - 50px);
+    position: relative;
+    margin-left: 10%;
 }
 
 #addRoutine {
@@ -194,6 +195,8 @@
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     cursor: pointer;
+    position: absolute;
+    right: 5%;
 }
 
 .deleteButton:hover {
@@ -212,4 +215,22 @@
 
 .setForm input {
     display: inline-flex;
+}
+
+.exerciseContainer {
+    display: inline-flex;
+    border: #59c4e1 solid 2px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background: rgba(89, 196, 225, 0.05);
+    margin: 10pt;
+    width: 85%;
+}
+
+.exerciseContainer:hover {
+    background: rgba(89, 196, 225, 0.2);
+    cursor: pointer;
 }
