@@ -1,9 +1,8 @@
 import { Fragment, useState, useEffect } from 'react';
 import profileStyle from '../Profile/Profile.module.css'
-import { Link, useParams } from "react-router-dom";
 import services from '../../server/service'
-import history from '../history'
 import moment from 'moment'
+import history from '../history'
 
 export default (props) => {
 
@@ -36,7 +35,7 @@ export default (props) => {
         for (let i = 0; i < times; i++) {
             all.push(
                 <Fragment>
-                    <tr >
+                    <tr key={i}>
                         <td><input type="text" placeholder="weight" name="weight" /></td>
                         <td><input type="text" placeholder="reps" name="reps" /></td>
                         <td><input type="text" placeholder="notes" name="notes" /></td>
@@ -71,11 +70,12 @@ export default (props) => {
             exercisesData.push({ exerciseSets, id: allTables[j].id });
 
         }
-        let dateNow = moment().format('DD/M/y');
+        let dateNow = moment().format('MMM Do');
         exercisesData.push({ logDate: { dateNow } })
 
         services.saveExercises(exercisesData, routineId).catch(err => { console.log(err); })
         services.setLastExercise(exercisesData, routineId).catch(err => { console.log(err); })
+        return history.push("/userProfile/logs");
     }
 
     return (
@@ -84,11 +84,11 @@ export default (props) => {
                 <input
                     type="text"
                     name="routineName"
-                    value={routine[0]}
+                    value={routine[0] || ''}
                     placeholder="Name"
                 />
                 <br />
-                <input value={routine[1]} type="text" name="notes" placeholder="Notes" />
+                <input value={routine[1] || ''} type="text" name="notes" placeholder="Notes" />
                 <br />
                 <button type="submit" className={profileStyle.saveButton}>Save Workout</button>
                 <br />

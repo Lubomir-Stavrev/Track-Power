@@ -95,7 +95,7 @@ export default {
 
     },
     saveExercises(exercises, id) {
-        return fetch(db + id + '/.json', {
+        return fetch(db + id + '/allWorkouts/.json', {
             method: 'POST',
             body: JSON.stringify({
                 exercises

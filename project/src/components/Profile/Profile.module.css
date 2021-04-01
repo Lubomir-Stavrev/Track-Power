@@ -20,16 +20,16 @@
     max-height: calc(100vh - 160px);
     border: #59c4e1 2px solid;
     border-radius: 20px;
-    margin-left: 24%;
-    margin-right: 24%;
+    margin-left: calc(32% - 110px);
+    margin-right: calc(32% - 110px);
     border-bottom: none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    overflow-y: scroll;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    overflow-y: scroll;
 }
 
 #profileMain::-webkit-scrollbar {
@@ -80,8 +80,10 @@
     -o-border-radius: 10px;
     background: rgba(89, 196, 225, 0.05);
     margin: 10pt;
-    width: 85%;
+    min-width: 2%;
+    width: calc(95% - 50px);
     position: relative;
+    font-size: 12pt;
 }
 
 .logContainer:hover {
