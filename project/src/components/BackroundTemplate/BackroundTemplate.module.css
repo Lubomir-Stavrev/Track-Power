@@ -11,10 +11,17 @@ body {
     z-index: 1;
 }
 
+.userTitle h4 {
+    font-size: calc(25pt - 1pt);
+    margin-bottom: -45px;
+    margin-top: -10px;
+}
+
 .highlightUser {
     color: #59c4e1;
-    font-size: 26pt;
+    font-size: calc(20pt - 1pt);
     font-family: "Raleway-semibold";
+    margin-bottom: -10px;
 }
 
 #home {

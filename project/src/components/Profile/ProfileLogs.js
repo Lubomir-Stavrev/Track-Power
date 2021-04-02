@@ -39,26 +39,28 @@ export default () => {
 
     return (
         <Fragment>
-            {console.log(allWorkouts)}
+
             {allWorkouts.length > 0 ? allWorkouts.map((el, i) => {
-                console.log(allWorkouts.length)
+
 
                 return (
-                    <div key={el.id} className={profileStyle.logContainer} >
-                        <div className={profileStyle.workoutName}>
-                            <h1>
-                                {el.name}
+                    <Link key={el.id} className='linkWithoutStyles' to={`/userProfile/log/${el.id}`}>
+                        <div key={el.id} className={profileStyle.logContainer} >
+                            <div className={profileStyle.workoutName}>
+                                <h1>
+                                    {el.name}
 
-                            </h1>
+                                </h1>
+                            </div>
+                            <div className={profileStyle.date}>
+                                <h1>
+                                    {el.date}
+
+                                </h1>
+                            </div>
                         </div>
-                        <div className={profileStyle.date}>
-                            <h1>
-                                {el.date}
 
-                            </h1>
-                        </div>
-                    </div>
-
+                    </Link>
                 );
             }) :
                 <div>

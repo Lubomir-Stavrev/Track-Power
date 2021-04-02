@@ -49,7 +49,10 @@ const Profile = ({
             <div id={profileStyle.profileWrapper}>
 
                 <div className={style.userTitle}>
-                    Welcom <span className={style.highlightUser}>{getEmail()}</span>.
+                    <h4>
+                        Welcome
+                    </h4>
+                    <span className={style.highlightUser}>{getEmail()}</span>.
                 </div>
 
                 <div id={profileStyle.profileMain}>

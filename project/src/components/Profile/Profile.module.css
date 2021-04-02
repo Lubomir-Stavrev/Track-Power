@@ -6,7 +6,9 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     height: 3.5rem;
-    width: 50%;
+    min-width: 300px;
+    max-width: calc(100% - 100px);
+    width: calc(50% - 100px);
     margin-left: auto;
     margin-right: auto;
 }
@@ -16,8 +18,9 @@
 }
 
 #profileMain {
-    min-height: calc(100vh - 160px);
-    max-height: calc(100vh - 160px);
+    min-height: 10vh;
+    max-height: 100vh;
+    height: calc(75vh - 10px);
     border: #59c4e1 2px solid;
     border-radius: 20px;
     margin-left: calc(32% - 110px);
@@ -99,33 +102,33 @@
 .workoutName {
     position: relative;
     margin-left: 10%;
+    font-size: calc(45pt - 34pt);
 }
 
 #addRoutine {
     position: absolute;
     bottom: 0;
-    margin-bottom: 7%;
+    margin-bottom: calc(1% + 70px);
     margin-left: 2%;
 }
 
 #addRoutine span {
-    color: #59c4e1;
-    border: #59c4e1 1px solid;
+    color: #202020;
+    background: #59c4e1;
+    border: #202020 2px solid;
     border-radius: 1000px;
     -webkit-border-radius: 1000px;
     -moz-border-radius: 1000px;
     -ms-border-radius: 1000px;
     -o-border-radius: 1000px;
-    font-size: 3rem;
+    font-size: calc(46pt - 10pt);
     padding: 0px 25px 0px;
     float: right;
     cursor: pointer;
 }
 
 #addRoutine span:hover {
-    color: #202020;
-    border: #202020 2px solid;
-    background: #59c4e1;
+    font-size: calc(47pt - 10pt);
 }
 
 .addExerciseForm {
@@ -190,7 +193,7 @@
     color: #202020;
     background: #59c4e1;
     border-radius: 20px;
-    font-size: 15pt;
+    font-size: calc(15pt - 1pt);
     padding: 10px 15px 10px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
