@@ -105,5 +105,15 @@ export default {
                 return data;
             }).catch(err => { throw new Error(err) })
 
-    }
+    },
+
+    getWorkout(rID, wId) {
+        return fetch(db + `${rID}/allWorkouts/` + wId + '/.json')
+            .then(res => res.json())
+            .then(data => {
+                return data;
+            }).catch(err => {
+                console.log(err);
+            })
+    },
 }

@@ -37,6 +37,10 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
 
     function saveRoutine(e) {
         e.preventDefault();
+
+        if (allExercises.length <= 0) {
+            return;
+        }
         services.addRoutine(routineName, routineNotes, allExercises)
             .then(res => {
 

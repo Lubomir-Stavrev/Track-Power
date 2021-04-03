@@ -23,13 +23,14 @@ export default () => {
             .then(res => {
                 Object.entries(res).forEach(el => {
                     if (el[1].allWorkouts) {
-                        Object.values(el[1].allWorkouts)
+                        Object.entries(el[1].allWorkouts)
                             .forEach(nel => {
-                                let date = (nel.exercises[nel.exercises.length - 1].logDate.dateNow);
+                                let date = (nel[1].exercises[nel[1].exercises.length - 1].logDate.dateNow);
                                 let name = el[1].routineName;
 
-                                let id = uniqid();
-                                workouts.push({ date, name, id })
+                                let workoutId = nel[0];
+                                let routineId = el[0];
+                                workouts.push({ date, name, workoutId, routineId })
                             })
                     }
                 })
@@ -44,8 +45,8 @@ export default () => {
 
 
                 return (
-                    <Link key={el.id} className='linkWithoutStyles' to={`/userProfile/log/${el.id}`}>
-                        <div key={el.id} className={profileStyle.logContainer} >
+                    <Link key={el.workoutId} className='linkWithoutStyles' to={`/userProfile/log/${el.routineId}/${el.workoutId}`}>
+                        <div key={el.workoutId} className={profileStyle.logContainer} >
                             <div className={profileStyle.workoutName}>
                                 <h1>
                                     {el.name}

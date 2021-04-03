@@ -7,6 +7,7 @@ import ProfileLogs from './ProfileLogs'
 import ProfileRoutines from './ProfileRoutines'
 import AddRoutine from './AddRoutine'
 import DoRoutine from './DoRoutine'
+import WorkoutLog from './WorkoutLog'
 import services from '../../server/service'
 
 import AddExercise from './AddExercise'
@@ -58,6 +59,7 @@ const Profile = ({
                 <div id={profileStyle.profileMain}>
                     <Switch>
                         <Route path="/userProfile/doRoutine/" component={DoRoutine} />
+                        <Route path="/userProfile/log/" component={WorkoutLog} />
                         <Route path="/userProfile/logs" exact component={ProfileLogs} />
                         <Route path="/userProfile/routines" exact component={ProfileRoutines} />
                         <Route path="/userProfile/addExercise" exact >
@@ -74,6 +76,8 @@ const Profile = ({
 
                             </AddRoutine>
                         </Route>
+
+
                     </Switch>
 
                 </div>
