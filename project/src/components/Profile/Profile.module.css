@@ -68,7 +68,9 @@
 }
 
 .pencilLogo:hover,
-.dumbellLogo:hover {
+.dumbellLogo:hover,
+.dumbellLogoActive:hover,
+.pencilLogoActive:hover {
     color: #59c4e1;
     opacity: 0.9;
 }

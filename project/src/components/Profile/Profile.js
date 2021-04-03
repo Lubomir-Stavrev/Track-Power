@@ -19,7 +19,8 @@ const Profile = ({
     const [isAuthenticated, setIsAuthenticated] = useState(services.isLogged());
     const [allExercises, setExercise] = useState([]);
     const [routineProps, setRoutineProps] = useState([]);
-    const [isSaved, setIsSaved] = useState(false);
+
+
     function getEmail() {
 
         return JSON.parse(localStorage.getItem('auth'))
@@ -99,5 +100,6 @@ const Profile = ({
         </Fragment>
     );
 }
+
 
 export default Profile

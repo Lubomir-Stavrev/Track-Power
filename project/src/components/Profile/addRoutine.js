@@ -9,7 +9,7 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
     const [allExercises, setExercise] = useState({});
     const [routineName, setRoutineName] = useState('');
     const [routineNotes, setRoutineNotes] = useState('');
-    const [isSaved, setIsSaved] = useState(false);
+
 
     useEffect(() => {
 

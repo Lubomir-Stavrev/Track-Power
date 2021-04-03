@@ -116,4 +116,13 @@ export default {
                 console.log(err);
             })
     },
+    getLastWorkout(rID) {
+        return fetch(db + `${rID}/lastWorkout/exercises/.json`)
+            .then(res => res.json())
+            .then(data => {
+                return data;
+            }).catch(err => {
+                console.log(err);
+            })
+    },
 }

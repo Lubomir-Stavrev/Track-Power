@@ -1,9 +1,6 @@
 import { Fragment, useState, useEffect } from 'react';
 import profileStyle from '../Profile/Profile.module.css'
 import services from '../../server/service'
-import moment from 'moment'
-import history from '../history'
-import { Switch, Route, Link } from "react-router-dom";
 
 export default (props) => {
 
@@ -12,7 +9,6 @@ export default (props) => {
     const [routine, setRoutine] = useState([]);
     const [routineId, setRoutineId] = useState('');
     const [workoutId, setWorkoutId] = useState('');
-    const [allExer, setAllExer] = useState([]);
 
 
     useEffect(() => {
