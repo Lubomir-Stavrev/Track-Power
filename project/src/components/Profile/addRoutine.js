@@ -27,12 +27,22 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
     function handleRoutineChange(e) {
         e.preventDefault();
 
+
         if (e.target.name == 'routineName') {
             setRoutineName(e.target.value)
+            setRoutineName(state => {
+
+                onAddingRoutineProps(state, routineNotes);
+                return state;
+            })
         } else if (e.target.name == 'notes') {
             setRoutineNotes(e.target.value)
+            setRoutineNotes(state => {
+                onAddingRoutineProps(routineName, state);
+                return state;
+            })
         }
-        onAddingRoutineProps(routineName, routineNotes);
+
     }
 
     function saveRoutine(e) {

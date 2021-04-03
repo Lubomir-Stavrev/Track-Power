@@ -29,7 +29,7 @@ export default () => {
                                 let name = el[1].routineName;
 
                                 let workoutId = nel[0];
-                                let routineId = el[0];
+                                let routineId = el[1].routineId;
                                 workouts.push({ date, name, workoutId, routineId })
                             })
                     }
@@ -44,6 +44,7 @@ export default () => {
             {allWorkouts.length > 0 ? allWorkouts.map((el, i) => {
 
 
+                { console.log(el) }
                 return (
                     <Link key={el.workoutId} className='linkWithoutStyles' to={`/userProfile/log/${el.routineId}/${el.workoutId}`}>
                         <div key={el.workoutId} className={profileStyle.logContainer} >

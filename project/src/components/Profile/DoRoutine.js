@@ -10,7 +10,7 @@ export default (props) => {
     const [exercises, setExercises] = useState([]);
     const [routine, setRoutine] = useState([]);
     const [routineId, setRoutineId] = useState('');
-
+    const [routineNotes, setRoutineNotes] = useState('');
 
     useEffect(() => {
         console.log('Hi =>');
@@ -96,7 +96,13 @@ export default (props) => {
 
         return all;
     }
+    function handleRoutineChange(e) {
+        e.preventDefault();
 
+        if (e.target.name == 'notes') {
+            setRoutineNotes(e.target.value)
+        }
+    }
     function saveWorkout(e) {
         e.preventDefault();
         let exercises = e.target.lastChild.children;
@@ -139,7 +145,7 @@ export default (props) => {
                     placeholder="Name"
                 />
                 <br />
-                <input value={routine[1] || ''} type="text" name="notes" placeholder="Notes" />
+                <input type="text" value={routineNotes} name="notes" onChange={(e) => handleRoutineChange(e)} placeholder="Notes" />
                 <br />
                 <button type="submit" className={profileStyle.saveButton}>Save Workout</button>
                 <br />
@@ -162,7 +168,6 @@ export default (props) => {
                                         {exercisesRows(el[0].sets, el[0].id)}
                                     </table>
                                 }
-                                <span>a</span>
                             </div>);
 
                     })}

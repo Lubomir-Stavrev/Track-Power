@@ -42,10 +42,6 @@ const Profile = ({
         setExercise([]);
         setRoutineProps([]);
     }
-    function getRoutineData() {
-
-        return 'Its ok men its ok'
-    }
     return (
         <Fragment>
             <div id={profileStyle.profileWrapper}>

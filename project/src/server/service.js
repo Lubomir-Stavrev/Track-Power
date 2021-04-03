@@ -49,15 +49,26 @@ export default {
                 routineName,
                 routineNotes,
                 routineExercises,
-                uid: localStorage.getItem('auth').uid
+                uid: JSON.parse(localStorage.getItem('auth')).uid
             })
         }).then(res => res.json());
     },
     async getAllRoutines() {
 
-        let allRoutines = await fetch(db + '.json').then(res => res.json()).then(data => { return data });
+        let allRoutines = [];
+        await fetch(db + '.json')
+            .then(res => res.json())
+            .then(data => {
+                Object.entries(data).forEach(el => {
 
-        return await allRoutines
+                    if (el[1].uid == JSON.parse(localStorage.getItem('auth')).uid) {
+                        el[1].routineId = el[0]
+                        allRoutines.push(el[1])
+                    }
+                })
+            });
+        let userRoutines = await Object.assign({}, allRoutines);
+        return await userRoutines;
 
     },
 

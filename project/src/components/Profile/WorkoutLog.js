@@ -97,8 +97,6 @@ export default (props) => {
                 <br />
                 <input value={routine[1] || ''} type="text" name="notes" placeholder="Notes" />
                 <br />
-                <button type="submit" className={profileStyle.saveButton}>Save Workout</button>
-                <br />
                 <hr />
                 <div>
 

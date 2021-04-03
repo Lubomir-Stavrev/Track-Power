@@ -18,6 +18,7 @@ export default () => {
 
     function getRoutines() {
         services.getAllRoutines().then(res => {
+
             setAllRoutines(res)
 
         }).catch(err => {
@@ -29,10 +30,6 @@ export default () => {
         e.preventDefault();
 
         let routineId = e.target.parentNode.id;
-
-        let routinesWithoutThis = Object.entries(allRoutines).filter(x => x[0] != routineId);
-        console.log(routinesWithoutThis, ' Without the deleted');
-
 
         services.deleteRoutine(routineId)
             .then(res => {
@@ -47,10 +44,12 @@ export default () => {
     return (
         <Fragment>
 
+            { console.log(allRoutines)}
             {allRoutines ? Object.entries(allRoutines).map(el => {
                 return (
-                    <Link className="linkWithoutStyles" to={`/userProfile/doRoutine/${el[0]}`}>
-                        <div key={el[0]} className={profileStyle.logContainer}>
+
+                    <Link className="linkWithoutStyles" to={`/userProfile/doRoutine/${el[1].routineId}`}>
+                        <div key={el[1].routineId} className={profileStyle.logContainer}>
                             <div className={profileStyle.workoutName}>
                                 <h1>
                                     {el[1].routineName}
@@ -59,7 +58,7 @@ export default () => {
 
                             <div className={profileStyle.routineSettings}>
                                 <span>
-                                    <a id={el[0]}>
+                                    <a id={el[1].routineId}>
                                         <button type="submit" onClick={(e) => deleteRoutine(e)} className={profileStyle.deleteButton}>Delete</button>
                                     </a>
                                 </span>
