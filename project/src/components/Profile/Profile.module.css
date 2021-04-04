@@ -104,7 +104,7 @@
     background: rgba(89, 196, 225, 0.05);
     margin: 10pt;
     min-width: 2%;
-    width: calc(95% - 50px);
+    width: calc(95% - 20px);
     position: relative;
     font-size: 12pt;
 }
@@ -116,13 +116,14 @@
 
 .date {
     position: absolute;
-    right: 10%;
+    right: 30%;
+    font-size: calc(30pt - 20pt);
 }
 
 .workoutName {
     position: relative;
     margin-left: 10%;
-    font-size: calc(45pt - 34pt);
+    font-size: calc(60pt - 50pt);
 }
 
 #addRoutine {
@@ -213,7 +214,7 @@
     color: #202020;
     background: #59c4e1;
     border-radius: 20px;
-    font-size: calc(15pt - 1pt);
+    font-size: calc(30pt - 20pt);
     padding: 10px 15px 10px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;

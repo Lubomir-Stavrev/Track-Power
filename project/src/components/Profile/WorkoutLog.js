@@ -9,7 +9,7 @@ export default (props) => {
     const [routine, setRoutine] = useState([]);
     const [routineId, setRoutineId] = useState('');
     const [workoutId, setWorkoutId] = useState('');
-
+    const [note, setNote] = useState('');
 
     useEffect(() => {
         console.log('Hi =>');
@@ -41,6 +41,7 @@ export default (props) => {
             then(res => {
 
                 setExercisesAndSets(res)
+                setNote(res.note)
 
             }).catch(err => { console.log(err) })
 
@@ -52,6 +53,7 @@ export default (props) => {
         Object.values(exercisesAndSets)
             .forEach(el => {
                 Object.values(el).forEach(set => {
+
                     if (el != undefined && set.exerciseSets != undefined) {
                         if (set.id == exId) {
                             exerSets.push(set);
@@ -95,7 +97,7 @@ export default (props) => {
                     placeholder="Name"
                 />
                 <br />
-                <input value={routine[1] || ''} type="text" name="notes" placeholder="Notes" />
+                <input value={note || ''} type="text" name="notes" placeholder="Notes" />
                 <br />
                 <hr />
                 <div>

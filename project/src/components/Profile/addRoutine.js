@@ -8,7 +8,6 @@ import history from '../history'
 export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
     const [allExercises, setExercise] = useState({});
     const [routineName, setRoutineName] = useState('');
-    const [routineNotes, setRoutineNotes] = useState('');
 
 
     useEffect(() => {
@@ -17,7 +16,6 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
 
         setExercise(props);
         setRoutineName(routineProps[0]);
-        setRoutineNotes(routineProps[1]);
 
         return () => {
             console.log('bye bye')
@@ -32,13 +30,7 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
             setRoutineName(e.target.value)
             setRoutineName(state => {
 
-                onAddingRoutineProps(state, routineNotes);
-                return state;
-            })
-        } else if (e.target.name == 'notes') {
-            setRoutineNotes(e.target.value)
-            setRoutineNotes(state => {
-                onAddingRoutineProps(routineName, state);
+                onAddingRoutineProps(state);
                 return state;
             })
         }
@@ -51,7 +43,7 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
         if (allExercises.length <= 0) {
             return;
         }
-        services.addRoutine(routineName, routineNotes, allExercises)
+        services.addRoutine(routineName, allExercises)
             .then(res => {
 
                 onSaving();
@@ -71,8 +63,6 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
                     onChange={(e) => handleRoutineChange(e)} placeholder="Name"
                 />
                 <br />
-                <input type="text" value={routineNotes} name="notes" onChange={(e) => handleRoutineChange(e)} placeholder="Notes" />
-                <br />
                 <button type="button" onClick={(e) => saveRoutine(e)} className={profileStyle.saveButton}>Save</button>
                 <br />
                 <hr />
@@ -91,7 +81,7 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
                                         Sets:  {el[0].sets}
                                     </h1>
                                 </div>
-                                <span>a</span>
+
                             </div>
                         );
                     })}

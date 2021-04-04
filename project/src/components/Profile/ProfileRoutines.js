@@ -6,45 +6,39 @@ import history from '../history'
 
 export default () => {
     const [allRoutines, setAllRoutines] = useState([]);
-    useEffect(() => {
+    useEffect(async () => {
 
         console.log('HEllo');
-        getRoutines()
-
+        let data = await getRoutines()
+        setAllRoutines(data);
         return () => {
             console.log('bye ')
         }
     }, [])
 
     function getRoutines() {
-        services.getAllRoutines().then(res => {
-
-            setAllRoutines(res)
-
+        return services.getAllRoutines().then(res => {
+            return res;
         }).catch(err => {
             console.log(err);
         })
     }
 
-    function deleteRoutine(e) {
+    async function deleteRoutine(e) {
         e.preventDefault();
 
         let routineId = e.target.parentNode.id;
 
-        services.deleteRoutine(routineId)
-            .then(res => {
-                getRoutines();
-
-            }).catch(err => {
-                console.log(err);
-            })
+        let res = await services.deleteRoutine(routineId)
+        let rotineData = await getRoutines()
+        setAllRoutines(old => rotineData)
 
 
     }
     return (
         <Fragment>
 
-            { console.log(allRoutines)}
+
             {allRoutines ? Object.entries(allRoutines).map(el => {
                 return (
 

@@ -41,13 +41,12 @@ export default {
     },
     signOut() { localStorage.removeItem('auth'); },
 
-    addRoutine(routineName, routineNotes, routineExercises) {
+    addRoutine(routineName, routineExercises) {
 
         return fetch(db + '.json', {
             method: 'POST',
             body: JSON.stringify({
                 routineName,
-                routineNotes,
                 routineExercises,
                 uid: JSON.parse(localStorage.getItem('auth')).uid
             })
@@ -81,6 +80,15 @@ export default {
             })
     },
 
+    deleteWorkout(rId, wId) {
+        return fetch(db + `${rId}/allWorkouts/${wId}/.json`, {
+            method: 'DELETE'
+        }).then(res => res.json())
+            .catch(err => {
+                throw new Error(err);
+            })
+    },
+
     getRoutine(id) {
         return fetch(db + id + '/.json')
             .then(res => res.json())
@@ -92,24 +100,26 @@ export default {
     },
 
 
-    setLastExercise(exercises, id) {
+    setLastExercise(allExercises, note, id) {
+        let exercises = { allExercises, note };
         return fetch(db + id + '/lastWorkout/.json', {
             method: 'PATCH',
             body: JSON.stringify({
-                exercises
+                exercises,
             })
         }).then(res => res.json())
             .then(data => {
                 return data;
             }).catch(err => { throw new Error(err) })
 
-
     },
-    saveExercises(exercises, id) {
+    saveExercises(exercises, note, id) {
+
         return fetch(db + id + '/allWorkouts/.json', {
             method: 'POST',
             body: JSON.stringify({
-                exercises
+                exercises,
+                note
             })
         }).then(res => res.json())
             .then(data => {

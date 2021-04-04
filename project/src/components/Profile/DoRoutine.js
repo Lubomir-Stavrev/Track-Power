@@ -9,15 +9,15 @@ export default (props) => {
     const [exercisesAndSets, setExercisesAndSets] = useState([]);
     const [exercises, setExercises] = useState([]);
     const [routine, setRoutine] = useState([]);
+    const [noteRoutine, setNoteRoutine] = useState([]);
     const [routineId, setRoutineId] = useState('');
-    const [routineNotes, setRoutineNotes] = useState('');
 
     useEffect(() => {
-        console.log('Hi =>');
+        console.log('mount')
         setRoutineData()
 
         return () => {
-            console.log('bye bye')
+            console.log('umount')
         }
     }, [])
     function setRoutineData() {
@@ -28,10 +28,10 @@ export default (props) => {
         saveExercisesAndSets(routineId)
         services.getRoutine(routineId)
             .then(res => {
-
+                console.log(res)
                 setExercises(res.routineExercises)
 
-                setRoutine([res.routineName, res.routineNotes])
+                setRoutine([res.routineName])
             }).catch(err => { console.log(err) })
     }
 
@@ -39,8 +39,9 @@ export default (props) => {
 
         services.getLastWorkout(rId).
             then(res => {
-
-                setExercisesAndSets(res)
+                console.log(res);
+                setExercisesAndSets(res.allExercises)
+                setNoteRoutine(res.note)
 
             }).catch(err => { console.log(err) })
 
@@ -49,7 +50,8 @@ export default (props) => {
     function exercisesRows(times, exId) {
         let all = [];
         let exerSets = [];
-        if (exercisesAndSets) {
+        console.log(exercisesAndSets)
+        if (exercisesAndSets.length >= 1) {
             Object.values(exercisesAndSets)
                 .forEach(el => {
                     if (el != undefined && el.exerciseSets) {
@@ -96,18 +98,13 @@ export default (props) => {
 
         return all;
     }
-    function handleRoutineChange(e) {
-        e.preventDefault();
 
-        if (e.target.name == 'notes') {
-            setRoutineNotes(e.target.value)
-        }
-    }
     function saveWorkout(e) {
         e.preventDefault();
         let exercises = e.target.lastChild.children;
         let allTables = [];
         let exercisesData = [];
+        let note = e.target.children[2].value;
 
         for (let i = 0; i < exercises.length; i++) {
             allTables.push(exercises[i].children[1]);
@@ -131,9 +128,10 @@ export default (props) => {
         let dateNow = moment().format('MMM Do');
         exercisesData.push({ logDate: { dateNow } })
 
-        services.saveExercises(exercisesData, routineId).catch(err => { console.log(err); })
-        services.setLastExercise(exercisesData, routineId).catch(err => { console.log(err); })
-        return history.push("/userProfile/logs");
+
+        services.saveExercises(exercisesData, note, routineId).catch(err => { console.log(err); })
+        services.setLastExercise(exercisesData, note, routineId).catch(err => { console.log(err); })
+        return history.push("/userProfile/routines");
     }
     return (
         <Fragment>
@@ -143,9 +141,10 @@ export default (props) => {
                     name="routineName"
                     value={routine[0] || ''}
                     placeholder="Name"
+                    readOnly={true}
                 />
                 <br />
-                <input type="text" value={routineNotes} name="notes" onChange={(e) => handleRoutineChange(e)} placeholder="Notes" />
+                <input type="text" defaultValue={noteRoutine || ''} name="notes" placeholder="Notes" />
                 <br />
                 <button type="submit" className={profileStyle.saveButton}>Save Workout</button>
                 <br />
