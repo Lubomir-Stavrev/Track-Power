@@ -1,6 +1,6 @@
 # Track Power Documentation
 <br />
-<br />
+
 
 ## What is this about for?
 
@@ -20,5 +20,7 @@ and wait a while.
 **Third** Type `npm start` in the terminal again and till it opens in the browser. \
 If it doesn't open the app in the browser by it self, than open [http://localhost:3000](http://localhost:3000) \
 to view it.
+
+
 
 
