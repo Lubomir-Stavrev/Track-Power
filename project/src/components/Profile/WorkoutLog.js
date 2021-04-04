@@ -7,8 +7,6 @@ export default (props) => {
     const [exercisesAndSets, setExercisesAndSets] = useState([]);
     const [exercises, setExercises] = useState([]);
     const [routine, setRoutine] = useState([]);
-    const [routineId, setRoutineId] = useState('');
-    const [workoutId, setWorkoutId] = useState('');
     const [note, setNote] = useState('');
 
     useEffect(() => {
@@ -23,8 +21,6 @@ export default (props) => {
         let routineId = props.location.pathname.split('/')[3];
         let workoutId = props.location.pathname.split('/')[4];
 
-        setRoutineId(routineId);
-        setWorkoutId(workoutId);
         saveExercisesAndSets(routineId, workoutId)
         services.getRoutine(routineId)
             .then(res => {
@@ -39,15 +35,13 @@ export default (props) => {
 
         services.getWorkout(rId, wId).
             then(res => {
-
                 setExercisesAndSets(res)
                 setNote(res.note)
 
             }).catch(err => { console.log(err) })
-
     }
 
-    function exercisesRows(times, exId) {
+    function exercisesRows(exId) {
         let all = [];
         let exerSets = [];
         Object.values(exercisesAndSets)
@@ -58,11 +52,8 @@ export default (props) => {
                         if (set.id == exId) {
                             exerSets.push(set);
                         }
-
                     }
-
                 })
-
             })
         Object.values(exerSets).forEach(row => {
 
@@ -80,7 +71,6 @@ export default (props) => {
                     )
                 })
             }
-
         })
 
         return all;
@@ -104,23 +94,19 @@ export default (props) => {
 
                     {exercises.map(el => {
                         return (
-                            <div key={el[0].id}
-
-                                id={el[0].id} className={profileStyle.exerciseContainer}>
+                            <div key={el[0].id} id={el[0].id} className={profileStyle.exerciseContainer}>
                                 <div>
                                     <h1>
                                         {el[0].exerciseName}
                                     </h1>
                                 </div>
-
                                 {
                                     <table id={el[0].id}>
-                                        {exercisesRows(el[0].sets, el[0].id)}
+                                        {exercisesRows(el[0].id)}
                                     </table>
                                 }
-                                <span>a</span>
-                            </div>);
 
+                            </div>);
                     })}
                 </div>
             </form>

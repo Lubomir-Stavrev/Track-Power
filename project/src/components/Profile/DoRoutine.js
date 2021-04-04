@@ -50,7 +50,7 @@ export default (props) => {
     function exercisesRows(times, exId) {
         let all = [];
         let exerSets = [];
-        console.log(exercisesAndSets)
+
         if (exercisesAndSets.length >= 1) {
             Object.values(exercisesAndSets)
                 .forEach(el => {
@@ -93,9 +93,6 @@ export default (props) => {
 
             }
         }
-
-
-
         return all;
     }
 
@@ -111,7 +108,6 @@ export default (props) => {
         }
 
         for (let j = 0; j < allTables.length; j++) {
-
             let exerciseSets = [];
             for (let k = 0; k < allTables[j].children.length; k++) {
                 exerciseSets.push(
@@ -123,7 +119,6 @@ export default (props) => {
                 )
             }
             exercisesData.push({ exerciseSets, id: allTables[j].id });
-
         }
         let dateNow = moment().format('MMM Do');
         exercisesData.push({ logDate: { dateNow } })

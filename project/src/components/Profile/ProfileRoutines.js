@@ -2,14 +2,13 @@ import { Fragment, useEffect, useState } from "react";
 import profileStyle from '../Profile/Profile.module.css'
 import { Link } from "react-router-dom";
 import services from '../../server/service'
-import history from '../history'
 
 export default () => {
     const [allRoutines, setAllRoutines] = useState([]);
     useEffect(async () => {
 
         console.log('HEllo');
-        let data = await getRoutines()
+        let data = await getRoutines();
         setAllRoutines(data);
         return () => {
             console.log('bye ')
@@ -26,14 +25,11 @@ export default () => {
 
     async function deleteRoutine(e) {
         e.preventDefault();
-
         let routineId = e.target.parentNode.id;
 
-        let res = await services.deleteRoutine(routineId)
-        let rotineData = await getRoutines()
-        setAllRoutines(old => rotineData)
-
-
+        let res = await services.deleteRoutine(routineId);
+        let rotineData = await getRoutines();
+        setAllRoutines(old => rotineData);
     }
     return (
         <Fragment>
@@ -60,8 +56,7 @@ export default () => {
                         </div>
                     </Link>
                 );
-            }) : <h2>There are no any routines :(</h2>
-            }
+            }) : <h2>There are no any routines :(</h2>}
 
             <div id={profileStyle.addRoutine}>
                 <Link to="/userProfile/addRoutine">

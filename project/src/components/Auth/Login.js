@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import history from '../history'
-
 import style from './Auth.module.css'
 import service from '../../server/service';
 
@@ -13,11 +12,15 @@ export default () => {
 
         let loginEmail = e.target.email.value;
         let loginPassword = e.target.password.value;
+        let loginUsername = e.target.username.value;
 
+        if (loginUsername.length <= 4 || loginUsername.length >= 14) {
+            return;
+        }
         if (loginPassword.length < 6) {
             return;
         }
-        service.login(loginEmail, loginPassword)
+        service.login(loginEmail, loginPassword, loginUsername)
             .then(res => {
                 if (res == 'Error') {
                     console.log(res)
@@ -29,10 +32,12 @@ export default () => {
     }
 
     return (
-        <div className={style.authWrapper}>
+        <div className={style.authWrapperLogin}>
 
             <form className={style.formDefault} onSubmit={(e) => handleLogin(e)}>
-
+                <label htmlFor="username">Username</label>
+                <input className={style.inputDefault} name="username" placeholder="pesho" type="text" />
+                <br />
                 <label htmlFor="email">Email</label>
                 <input className={style.inputDefault} name="email" placeholder="example@email.com" type="text" />
                 <br />

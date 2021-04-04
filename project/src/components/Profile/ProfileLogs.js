@@ -2,8 +2,6 @@ import { Fragment, useState, useEffect } from 'react';
 import profileStyle from '../Profile/Profile.module.css'
 import services from '../../server/service'
 import { Link } from "react-router-dom";
-import uniqid from 'uniqid'
-import history from '../history'
 
 export default () => {
     const [allWorkouts, setallWorkouts] = useState([]);
@@ -52,17 +50,12 @@ export default () => {
         } catch (err) {
             console.log(err);
         }
-
-
-
     }
 
     return (
         <Fragment>
 
             {allWorkouts.length > 0 ? allWorkouts.map((el, i) => {
-
-
 
                 return (
                     <Link key={el.workoutId} className='linkWithoutStyles' to={`/userProfile/log/${el.routineId}/${el.workoutId}`}>

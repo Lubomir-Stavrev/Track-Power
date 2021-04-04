@@ -28,7 +28,7 @@ export default () => {
                 if (res) {
                     console.log(res);
                     return;
-                }
+                } console.log(res);
                 history.push('/login')
 
             })
@@ -38,6 +38,7 @@ export default () => {
         <div className={style.authWrapper} >
 
             <form className={style.formDefault} onSubmit={(e) => handleRegister(e)}>
+
 
                 <label htmlFor="email">Email</label>
                 <input className={style.inputDefault} name="email" placeholder="example@email.com" type="email" />

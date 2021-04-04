@@ -9,22 +9,17 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
     const [allExercises, setExercise] = useState({});
     const [routineName, setRoutineName] = useState('');
 
-
     useEffect(() => {
-
-        console.log('Hello again !');
-
         setExercise(props);
         setRoutineName(routineProps[0]);
 
         return () => {
-            console.log('bye bye')
+            console.log('unmount')
         }
     }, [])
 
     function handleRoutineChange(e) {
         e.preventDefault();
-
 
         if (e.target.name == 'routineName') {
             setRoutineName(e.target.value)
@@ -34,18 +29,15 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
                 return state;
             })
         }
-
     }
 
     function saveRoutine(e) {
         e.preventDefault();
-
         if (allExercises.length <= 0) {
             return;
         }
         services.addRoutine(routineName, allExercises)
             .then(res => {
-
                 onSaving();
                 return history.push("/userProfile/routines");
             }).catch(err => {
@@ -56,17 +48,13 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
     return (
         <Fragment>
             <form className={profileStyle.addExerciseForm} >
-                <input
-                    type="text"
-                    name="routineName"
+                <input type="text" name="routineName"
                     value={routineName}
-                    onChange={(e) => handleRoutineChange(e)} placeholder="Name"
-                />
+                    onChange={(e) => handleRoutineChange(e)} placeholder="Name" />
                 <br />
                 <button type="button" onClick={(e) => saveRoutine(e)} className={profileStyle.saveButton}>Save</button>
                 <br />
                 <hr />
-
                 <div>
                     {Object.values(allExercises).map(el => {
                         return (
@@ -86,11 +74,8 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
                         );
                     })}
                 </div>
-
                 <Link to="/userProfile/addExercise">
-                    <button
-                        type="submit"
-                        className="defaultButton" >
+                    <button type="submit" className="defaultButton" >
                         + Add Exercise
                 </button>
                 </Link>

@@ -21,7 +21,7 @@ body {
     color: #59c4e1;
     font-size: calc(20pt - 1pt);
     font-family: "Raleway-semibold";
-    margin-bottom: -10px;
+    margin-bottom: -20px;
 }
 
 #home {
@@ -45,11 +45,11 @@ body {
     margin: auto;
     width: 90vw;
     /*IE9*/
-    transform: rotate(52deg);
-    -webkit-transform: rotate(52deg);
-    -moz-transform: rotate(52deg);
-    -ms-transform: rotate(52deg);
-    -o-transform: rotate(52deg);
+    transform: rotate(calc(45deg + 1deg));
+    -webkit-transform: rotate(calc(45deg + 1deg));
+    -moz-transform: rotate(calc(45deg + 1deg));
+    -ms-transform: rotate(calc(45deg + 1deg));
+    -o-transform: rotate(calc(45deg + 1deg));
     z-index: -100;
 }
 
@@ -58,7 +58,7 @@ body {
     width: 1px;
     height: 300%;
     top: 0;
-    left: 50%;
+    left: calc(50% - 1px);
     background: rgba(255, 255, 255, 0.1);
     overflow: hidden;
 }
@@ -112,14 +112,14 @@ body {
         top: -50%;
     }
     100% {
-        top: 110%;
+        top: 100%;
     }
 }
 
 .title {
     margin-bottom: 0px;
-    margin-top: 14%;
-    font-size: 42pt;
+    margin-top: calc(12% + 60px);
+    font-size: 45pt;
     line-height: 60pt;
     position: relative;
     z-index: 1;

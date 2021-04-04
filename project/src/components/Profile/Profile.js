@@ -12,21 +12,16 @@ import services from '../../server/service'
 
 import AddExercise from './AddExercise'
 
-const Profile = ({
-    props,
-}) => {
-
-    const [isAuthenticated, setIsAuthenticated] = useState(services.isLogged());
+const Profile = () => {
     const [allExercises, setExercise] = useState([]);
     const [routineProps, setRoutineProps] = useState([]);
     const [isRoutineActive, setIsRoutineActive] = useState(false);
     const [isLogActive, setIsLogActive] = useState(false);
 
-
     function getEmail() {
 
         return JSON.parse(localStorage.getItem('auth'))
-            ? JSON.parse(localStorage.getItem('auth')).email
+            ? JSON.parse(localStorage.getItem('auth')).username
             : history.push('/login');
     }
 
@@ -100,6 +95,5 @@ const Profile = ({
         </Fragment>
     );
 }
-
 
 export default Profile
