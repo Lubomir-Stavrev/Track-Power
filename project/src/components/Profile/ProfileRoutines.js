@@ -48,7 +48,7 @@ export default () => {
             {allRoutines ? Object.entries(allRoutines).map(el => {
                 return (
 
-                    <Link className="linkWithoutStyles" to={`/userProfile/doRoutine/${el[1].routineId}`}>
+                    <Link key={el[1].routineId} className="linkWithoutStyles" to={`/userProfile/doRoutine/${el[1].routineId}`}>
                         <div key={el[1].routineId} className={profileStyle.logContainer}>
                             <div className={profileStyle.workoutName}>
                                 <h1>

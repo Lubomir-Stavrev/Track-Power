@@ -19,6 +19,8 @@ const Profile = ({
     const [isAuthenticated, setIsAuthenticated] = useState(services.isLogged());
     const [allExercises, setExercise] = useState([]);
     const [routineProps, setRoutineProps] = useState([]);
+    const [isRoutineActive, setIsRoutineActive] = useState(false);
+    const [isLogActive, setIsLogActive] = useState(false);
 
 
     function getEmail() {
@@ -42,7 +44,9 @@ const Profile = ({
         setExercise([]);
         setRoutineProps([]);
     }
+
     return (
+
         <Fragment>
             <div id={profileStyle.profileWrapper}>
 
@@ -81,13 +85,13 @@ const Profile = ({
 
                 <div id={profileStyle.navContainer}>
 
-                    <i >
-                        <Link to="/userProfile/logs" className={profileStyle.pencilLogo}>
+                    <i onClick={() => { setIsLogActive(true); setIsRoutineActive(false); }}>
+                        <Link to="/userProfile/logs" className={isLogActive ? profileStyle.pencilLogoActive : profileStyle.pencilLogo}>
                             ✎
                         </Link>
                     </i>
-                    <i >
-                        <Link to="/userProfile/routines" className={'fas ' + profileStyle.dumbellLogo}>
+                    <i onClick={() => { setIsRoutineActive(true); setIsLogActive(false); }}>
+                        <Link to="/userProfile/routines" className={isRoutineActive ? 'fas ' + profileStyle.dumbellLogoActive : 'fas ' + profileStyle.dumbellLogo}>
                             &#xf44b;
                         </Link>
                     </i>

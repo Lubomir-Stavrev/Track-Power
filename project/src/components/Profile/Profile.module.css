@@ -67,6 +67,24 @@
     cursor: pointer;
 }
 
+.pencilLogoActive {
+    color: #59c4e1;
+    font-size: 35pt;
+    margin-right: 20%;
+    margin-top: -3%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dumbellLogoActive {
+    color: #59c4e1;
+    font-size: 35pt;
+    margin-left: 20%;
+    margin-top: -3%;
+    display: inline-block;
+    cursor: pointer;
+}
+
 .pencilLogo:hover,
 .dumbellLogo:hover,
 .dumbellLogoActive:hover,

@@ -7,8 +7,5 @@ Get the left part and made it like a template so it can be used with the login a
  TO DO:
  -Do some authorizations here and there.
  -Add name with the registration
- -Save the routines (or all data at all) in the user but not like in the whole app
- -Do the design more responsive 
  -Do error handleing
- -Make the navigation bar light when you are on it
  -Do project documentation and project architectual doc too
