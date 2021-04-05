@@ -29,7 +29,7 @@ export default () => {
 
         service.register(registerEmail.value, registerPassword.value)
             .then(res => {
-                if (res.err) {
+                if (res?.err) {
                     console.log(res.err.message);
                     setErrorMessage(res.err.message)
                     return;
