@@ -2,8 +2,6 @@ import { Switch, Route } from "react-router-dom";
 import { Fragment } from "react";
 import './App.css';
 
-
-
 import BackroundTemplate from './components/BackroundTemplate/BackroundTemplate';
 import Home from './components/Home/Home';
 import Login from './components/Auth/Login';

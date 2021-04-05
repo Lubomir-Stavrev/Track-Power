@@ -8,7 +8,8 @@ import ProfileRoutines from './ProfileRoutines'
 import AddRoutine from './AddRoutine'
 import DoRoutine from './DoRoutine'
 import WorkoutLog from './WorkoutLog'
-import services from '../../server/service'
+
+
 
 import AddExercise from './AddExercise'
 
@@ -76,6 +77,7 @@ const Profile = () => {
 
                     </Switch>
 
+
                 </div>
 
                 <div id={profileStyle.navContainer}>
@@ -85,9 +87,10 @@ const Profile = () => {
                             ✎
                         </Link>
                     </i>
+
                     <i onClick={() => { setIsRoutineActive(true); setIsLogActive(false); }}>
                         <Link to="/userProfile/routines" className={isRoutineActive ? 'fas ' + profileStyle.dumbellLogoActive : 'fas ' + profileStyle.dumbellLogo}>
-                            &#xf44b;
+                            <i class="fas fa-dumbbell"></i>
                         </Link>
                     </i>
                 </div>
