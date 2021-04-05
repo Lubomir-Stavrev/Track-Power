@@ -11,6 +11,7 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    justify-content: center;
 }
 
 .authWrapperLogin {
@@ -60,4 +61,16 @@
 
 .inputDefault:focus {
     width: calc(46% + 65px);
+}
+
+.errorMessage {
+    border: solid 1px #59c4e1;
+    width: 50%;
+    margin-left: 25%;
+    border-radius: 2px;
+}
+
+.errorMessage span {
+    text-decoration: underline;
+    font-size: calc(13pt - 1pt);
 }

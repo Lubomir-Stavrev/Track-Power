@@ -12,8 +12,10 @@ export default {
             .then(async function (data) {
 
                 localStorage.setItem('auth', JSON.stringify({ uid: data.user.uid, email, username }));
-            }).catch(err => {
-                return err;
+            }).catch(async err => {
+                let error = {};
+                error.err = err;
+                return await error;
             })
     },
     async register(email, password) {
@@ -27,9 +29,10 @@ export default {
                         email,
                     })
                 })
-            }).catch(err => {
-
-                return err;
+            }).catch(async err => {
+                let error = {};
+                error.err = err;
+                return await error;
             })
     },
     isLogged() {
