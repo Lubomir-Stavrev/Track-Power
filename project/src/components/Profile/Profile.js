@@ -9,6 +9,9 @@ import AddRoutine from './AddRoutine'
 import DoRoutine from './DoRoutine'
 import WorkoutLog from './WorkoutLog'
 
+// npm install --save-dev @iconify/react @iconify-icons/mdi
+import { Icon, InlineIcon } from '@iconify/react';
+import dumbbellIcon from '@iconify-icons/mdi/dumbbell';
 
 
 import AddExercise from './AddExercise'
@@ -90,7 +93,7 @@ const Profile = () => {
 
                     <i onClick={() => { setIsRoutineActive(true); setIsLogActive(false); }}>
                         <Link to="/userProfile/routines" className={isRoutineActive ? 'fas ' + profileStyle.dumbellLogoActive : 'fas ' + profileStyle.dumbellLogo}>
-                            <i class="fas fa-dumbbell"></i>
+                            <Icon icon={dumbbellIcon} />
                         </Link>
                     </i>
                 </div>
