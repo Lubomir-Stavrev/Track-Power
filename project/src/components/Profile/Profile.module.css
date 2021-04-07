@@ -280,3 +280,33 @@
     opacity: 1;
     padding: 22px 5px 22px;
 }
+
+.optionContainer {
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.optionContainer span {
+    font-size: calc(30pt - 1pt);
+    margin-right: calc(20px - 1px);
+    z-index: 100;
+    cursor: pointer;
+    padding: 5px 10px 5px;
+}
+
+.optionContainer span:hover {
+    color: #59c4e1;
+}
+
+.dropDownRemoveButtonContainer {
+    position: absolute;
+    z-index: 100;
+}
+
+.dropDownRemoveButtonContainer button {
+    border: 1px solid #59c4e1;
+    color: #59c4e1;
+    background: rgba(28, 29, 29, 0.7);
+    padding: 10px 10px 10px;
+    position: relative;
+}

@@ -4,6 +4,8 @@ import services from '../../server/service'
 import history from '../history'
 import dataProcessing from './helpers/DoRoutineDataProcess'
 
+import RemoveSetButton from './RemoveSetButton';
+
 export default (props) => {
 
     const [exercisesAndSets, setExercisesAndSets] = useState([]);
@@ -11,6 +13,7 @@ export default (props) => {
     const [routine, setRoutine] = useState([]);
     const [noteRoutine, setNoteRoutine] = useState([]);
     const [routineId, setRoutineId] = useState('');
+
 
     useEffect(() => {
         console.log('mount')
@@ -95,7 +98,7 @@ export default (props) => {
                                             {getExerciseStructure(el[0].sets, el[0].id)}
                                         </table>
                                     }
-
+                                    <RemoveSetButton></RemoveSetButton>
                                 </div>
 
 
