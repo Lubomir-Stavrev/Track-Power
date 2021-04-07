@@ -92,22 +92,26 @@ export default (props) => {
                 <hr />
                 <div>
 
-                    {exercises.map(el => {
-                        return (
-                            <div key={el[0].id} id={el[0].id} className={profileStyle.exerciseContainer}>
-                                <div>
-                                    <h1>
-                                        {el[0].exerciseName}
-                                    </h1>
-                                </div>
-                                {
-                                    <table id={el[0].id}>
-                                        {exercisesRows(el[0].id)}
-                                    </table>
-                                }
+                    {exercises ? exercises.map(el => {
+                        if (el) {
 
-                            </div>);
-                    })}
+
+                            return (
+                                <div key={el[0].id} id={el[0].id} className={profileStyle.exerciseContainer}>
+                                    <div>
+                                        <h1>
+                                            {el[0].exerciseName}
+                                        </h1>
+                                    </div>
+                                    {
+                                        <table id={el[0].id}>
+                                            {exercisesRows(el[0].id)}
+                                        </table>
+                                    }
+
+                                </div>);
+                        }
+                    }) : <h1>Sorry</h1>}
                 </div>
             </form>
 

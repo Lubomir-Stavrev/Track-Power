@@ -283,7 +283,7 @@
 
 .optionContainer {
     justify-content: center;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .optionContainer span {
@@ -299,8 +299,9 @@
 }
 
 .dropDownRemoveButtonContainer {
-    position: absolute;
     z-index: 100;
+    position: relative;
+    margin-right: 55px;
 }
 
 .dropDownRemoveButtonContainer button {
@@ -308,5 +309,6 @@
     color: #59c4e1;
     background: rgba(28, 29, 29, 0.7);
     padding: 10px 10px 10px;
-    position: relative;
+    cursor: pointer;
+    position: absolute;
 }

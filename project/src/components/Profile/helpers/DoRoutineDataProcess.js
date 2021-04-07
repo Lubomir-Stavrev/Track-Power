@@ -5,6 +5,7 @@ import moment from 'moment'
 export default {
 
     processAndSaveWorkout(e, routineId) {
+
         let exercises = e.target.lastChild.children;
         let allTables = [];
         let exercisesData = [];
@@ -52,14 +53,14 @@ export default {
             Object.values(exerSets).forEach(row => {
 
                 if (row.exerciseSets != undefined) {
-                    row.exerciseSets.forEach(el => {
-
+                    row.exerciseSets.forEach((el, i) => {
+                        i = i + 1
                         all.push(
                             <Fragment>
-                                <tr >
-                                    <td><input type="text" placeholder={el.weight || 'weight'} name="weight" /></td>
-                                    <td><input type="text" placeholder={el.reps || 'reps'} name="reps" /></td>
-                                    <td><input type="text" placeholder={el.notes || 'notes'} name="notes" /></td>
+                                <tr key={i}>
+                                    <td ><input type="text" placeholder={el.weight || 'weight'} name="weight" /></td>
+                                    <td ><input type="text" placeholder={el.reps || 'reps'} name="reps" /></td>
+                                    <td ><input type="text" placeholder={el.notes || 'notes'} name="notes" /></td>
                                 </tr>
                             </Fragment>
                         )

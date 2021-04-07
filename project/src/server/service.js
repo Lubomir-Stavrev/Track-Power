@@ -149,4 +149,31 @@ export default {
                 console.log(err);
             })
     },
+    async removeExerciseFromRoutine(exerciseId, routineId) {
+        let exerciseRowToDelete = '';
+        await fetch(db + routineId + '/routineExercises/.json')
+            .then(res => res.json())
+            .then(data => {
+
+                if (data) {
+
+                    return Object.entries(data).forEach(exercise => {
+                        if (exercise[1]) {
+
+                            if (exercise[1][0].id == exerciseId) {
+                                exerciseRowToDelete = exercise[0];
+                            }
+                        }
+                    })
+                }
+            }).catch(err => { throw new Error(err) })
+
+        console.log(exerciseRowToDelete)
+        return await fetch(db + routineId + `/routineExercises/${exerciseRowToDelete}/0/.json`, {
+            method: "DELETE"
+        }).then(resDel => resDel.json())
+            .then(dataDel => { return dataDel })
+            .catch(err => { throw new Error(err) });
+    }
+
 }
