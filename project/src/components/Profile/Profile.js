@@ -1,5 +1,5 @@
-import { Fragment, useState } from 'react';
-import { Switch, Route, Link } from "react-router-dom";
+import { Fragment, useState, useEffect } from 'react';
+import { Switch, Route, Link, useHistory } from "react-router-dom";
 import history from '../history'
 import style from '../BackroundTemplate/BackroundTemplate.module.css'
 import profileStyle from '../Profile/Profile.module.css'
@@ -8,8 +8,7 @@ import ProfileRoutines from './ProfileRoutines'
 import AddRoutine from './AddRoutine'
 import DoRoutine from './DoRoutine'
 import WorkoutLog from './WorkoutLog'
-
-// npm install --save-dev @iconify/react @iconify-icons/mdi
+import NotFoundPage from '../notFound/NotFoundPage'
 import { Icon, InlineIcon } from '@iconify/react';
 import dumbbellIcon from '@iconify-icons/mdi/dumbbell';
 
@@ -21,7 +20,23 @@ const Profile = () => {
     const [routineProps, setRoutineProps] = useState([]);
     const [isRoutineActive, setIsRoutineActive] = useState(false);
     const [isLogActive, setIsLogActive] = useState(false);
+    const history = useHistory()
+    useEffect(() => {
+        console.log('mount from Profile')
 
+        let urlPath = window.location.href.split('/')[4];
+
+        if (urlPath == 'routines') {
+            setIsRoutineActive(true);
+            setIsLogActive(false);
+        } else if (urlPath == 'logs') {
+            setIsRoutineActive(false);
+            setIsLogActive(true);
+        }
+        return () => {
+            console.log('umount')
+        }
+    }, [history])
     function getEmail() {
 
         return JSON.parse(localStorage.getItem('auth'))
@@ -77,6 +92,7 @@ const Profile = () => {
                             </AddRoutine>
                         </Route>
 
+                        <Route component={NotFoundPage} />
 
                     </Switch>
 

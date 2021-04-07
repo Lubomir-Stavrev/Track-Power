@@ -1,0 +1,55 @@
+.notFoundContainer {
+    justify-content: center;
+    text-align: center;
+    padding: 0px 20px 0px;
+    width: calc(80% - 5pt);
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: calc(8% + 60pt);
+}
+
+.notFoundContainer h1 {
+    color: #59c4e1;
+    font-weight: lighter;
+    font-size: calc(50pt - 2pt);
+}
+
+.goButton {
+    color: #59c4e1;
+    border: #59c4e1 solid 3px;
+    font-size: calc(27pt - 5pt);
+    margin: 20px;
+    background: rgba(89, 196, 225, 0.05);
+    padding: 5px 20px 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    position: relative;
+}
+
+.goButton:hover {
+    animation: buttonAnimation 2s infinite;
+    -webkit-animation: buttonAnimation 2s infinite;
+}
+
+@keyframes buttonAnimation {
+    0% {
+        border: #59c4e1 solid 2px;
+        border-radius: 10pt;
+        -webkit-border-radius: 10pt;
+        -moz-border-radius: 10pt;
+        -ms-border-radius: 10pt;
+        -o-border-radius: 10pt;
+        padding: 10px 15px 10px;
+        opacity: 0.6;
+    }
+    100% {
+        border: #59c4e1 solid 1px;
+        border-radius: 40pt;
+        -webkit-border-radius: 40pt;
+        -moz-border-radius: 40pt;
+        -ms-border-radius: 40pt;
+        -o-border-radius: 40pt;
+        padding: 30px 0px 30px;
+        opacity: 1;
+    }
+}

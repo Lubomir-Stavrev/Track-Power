@@ -8,8 +8,7 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import Profile from './components/Profile/Profile'
 import Header from './components/Header/Header'
-
-
+import NotFoundPage from './components/notFound/NotFoundPage'
 
 function App() {
 
@@ -22,6 +21,7 @@ function App() {
                     <Route path="/login" exact component={Login} />
                     <Route path="/register" exact component={Register} />
                     <Route path="/userProfile" component={Profile} />
+                    <Route component={NotFoundPage} />
                 </Switch>
 
 

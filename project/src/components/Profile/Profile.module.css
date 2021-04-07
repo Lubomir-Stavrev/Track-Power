@@ -260,3 +260,23 @@
     background: rgba(89, 196, 225, 0.2);
     cursor: pointer;
 }
+
+.removeSetButton {
+    padding: 32px 5px 32px;
+    font-size: calc(11pt - 2pt);
+    border: 1px solid #59c4e1;
+    border-radius: 30pt;
+    -webkit-border-radius: 30pt;
+    -moz-border-radius: 30pt;
+    -ms-border-radius: 30pt;
+    -o-border-radius: 30pt;
+    color: #59c4e1;
+    background: #202020;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.removeSetButton:hover {
+    opacity: 1;
+    padding: 22px 5px 22px;
+}

@@ -1,8 +1,8 @@
 import { Fragment, useState, useEffect } from 'react';
 import profileStyle from '../Profile/Profile.module.css'
 import services from '../../server/service'
-import moment from 'moment'
 import history from '../history'
+import dataProcessing from './helpers/DoRoutineDataProcess'
 
 export default (props) => {
 
@@ -39,7 +39,7 @@ export default (props) => {
 
         services.getLastWorkout(rId).
             then(res => {
-                console.log(res);
+
                 setExercisesAndSets(res.allExercises)
                 setNoteRoutine(res.note)
 
@@ -47,85 +47,16 @@ export default (props) => {
 
     }
 
-    function exercisesRows(times, exId) {
-        let all = [];
-        let exerSets = [];
+    function getExerciseStructure(times, exId) {
+        let exercises = dataProcessing.makeExerciseStructure(times, exId, exercisesAndSets)
 
-        if (exercisesAndSets.length >= 1) {
-            Object.values(exercisesAndSets)
-                .forEach(el => {
-                    if (el != undefined && el.exerciseSets) {
-                        if (el.id == exId) {
-                            exerSets.push(el);
-                        }
-                    }
-
-                })
-            Object.values(exerSets).forEach(row => {
-
-                if (row.exerciseSets != undefined) {
-                    row.exerciseSets.forEach(el => {
-
-                        all.push(
-                            <Fragment>
-                                <tr >
-                                    <td><input type="text" placeholder={el.weight || 'weight'} name="weight" /></td>
-                                    <td><input type="text" placeholder={el.reps || 'reps'} name="reps" /></td>
-                                    <td><input type="text" placeholder={el.notes || 'notes'} name="notes" /></td>
-                                </tr>
-                            </Fragment>
-                        )
-                    })
-                }
-
-            })
-        } else {
-            for (let i = 0; i < times; i++) {
-                all.push(
-                    <Fragment>
-                        <tr >
-                            <td><input type="text" placeholder={'weight'} name="weight" /></td>
-                            <td><input type="text" placeholder={'reps'} name="reps" /></td>
-                            <td><input type="text" placeholder={'notes'} name="notes" /></td>
-                        </tr>
-                    </Fragment>
-                )
-
-            }
-        }
-        return all;
+        return exercises;
     }
 
     function saveWorkout(e) {
         e.preventDefault();
-        let exercises = e.target.lastChild.children;
-        let allTables = [];
-        let exercisesData = [];
-        let note = e.target.children[2].value;
+        dataProcessing.processAndSaveWorkout(e, routineId);
 
-        for (let i = 0; i < exercises.length; i++) {
-            allTables.push(exercises[i].children[1]);
-        }
-
-        for (let j = 0; j < allTables.length; j++) {
-            let exerciseSets = [];
-            for (let k = 0; k < allTables[j].children.length; k++) {
-                exerciseSets.push(
-                    {
-                        weight: allTables[j].children[k].children[0].firstChild.value,
-                        reps: allTables[j].children[k].children[1].firstChild.value,
-                        notes: allTables[j].children[k].children[2].firstChild.value,
-                    }
-                )
-            }
-            exercisesData.push({ exerciseSets, id: allTables[j].id });
-        }
-        let dateNow = moment().format('MMM Do');
-        exercisesData.push({ logDate: { dateNow } })
-
-
-        services.saveExercises(exercisesData, note, routineId).catch(err => { console.log(err); })
-        services.setLastExercise(exercisesData, note, routineId).catch(err => { console.log(err); })
         return history.push("/userProfile/routines");
     }
     return (
@@ -148,26 +79,34 @@ export default (props) => {
 
                     {exercises.map(el => {
                         return (
-                            <div key={el[0].id}
+                            <Fragment>
 
-                                id={el[0].id} className={profileStyle.exerciseContainer}>
-                                <div>
-                                    <h1>
-                                        {el[0].exerciseName}
-                                    </h1>
+                                <div key={el[0].id}
+
+                                    id={el[0].id} className={profileStyle.exerciseContainer}>
+                                    <div>
+                                        <h1>
+                                            {el[0].exerciseName}
+                                        </h1>
+                                    </div>
+
+                                    {
+                                        <table id={el[0].id}>
+                                            {getExerciseStructure(el[0].sets, el[0].id)}
+                                        </table>
+                                    }
+
                                 </div>
 
-                                {
-                                    <table id={el[0].id}>
-                                        {exercisesRows(el[0].sets, el[0].id)}
-                                    </table>
-                                }
-                            </div>);
+
+                            </Fragment>
+
+                        );
 
                     })}
                 </div>
             </form>
 
-        </Fragment>
+        </Fragment >
     );
 }
