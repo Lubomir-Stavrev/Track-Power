@@ -21,6 +21,8 @@ class BackroundTemplate extends Component {
                             <div className={style.line}></div>
                             <div className={style.line}></div>
                             <div className={style.line}></div>
+                            <div className={style.line}></div>
+                            <div className={style.line}></div>
                         </div>
                         <div className={style.flex}>
                             {this.props.children}

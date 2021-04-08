@@ -23,7 +23,8 @@ export default () => {
             setErrorMessage('Passwords should match!')
             return;
         }
-        if (!isStrongPassword(registerPassword)) {
+
+        if (!isStrongPassword(registerPassword.value)) {
             setErrorMessage('The password is too week! It should contains at least one s$mbol!')
         }
 
@@ -38,6 +39,7 @@ export default () => {
 
             }).catch(err => {
                 console.log(err);
+                setErrorMessage(err.message)
                 return;
             })
     }

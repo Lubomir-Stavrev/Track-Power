@@ -44,13 +44,30 @@ body {
     height: 100%;
     margin: auto;
     width: 90vw;
-    /*IE9*/
     transform: rotate(calc(45deg + 1deg));
     -webkit-transform: rotate(calc(45deg + 1deg));
     -moz-transform: rotate(calc(45deg + 1deg));
     -ms-transform: rotate(calc(45deg + 1deg));
     -o-transform: rotate(calc(45deg + 1deg));
     z-index: -100;
+}
+
+@media only screen and (max-width: 700px) {
+    .lines {
+        position: absolute;
+        top: -30%;
+        left: 40%;
+        right: 30%;
+        height: 100%;
+        margin: auto;
+        width: 90vw;
+        transform: rotate(calc(35deg - 1deg));
+        -webkit-transform: rotate(calc(35deg - 1deg));
+        -moz-transform: rotate(calc(35deg - 1deg));
+        -ms-transform: rotate(calc(35deg - 1deg));
+        -o-transform: rotate(calc(35deg - 1deg));
+        z-index: -100;
+    }
 }
 
 .line {
@@ -94,6 +111,24 @@ body {
 }
 
 .line:nth-child(3)::after {
+    -webkit-animation-delay: 2.5s;
+    animation-delay: 2.5s;
+}
+
+.line:nth-child(4) {
+    margin-left: -50%;
+}
+
+.line:nth-child(4)::after {
+    -webkit-animation-delay: 2.5s;
+    animation-delay: 2.5s;
+}
+
+.line:nth-child(5) {
+    margin-left: 50%;
+}
+
+.line:nth-child(5)::after {
     -webkit-animation-delay: 2.5s;
     animation-delay: 2.5s;
 }

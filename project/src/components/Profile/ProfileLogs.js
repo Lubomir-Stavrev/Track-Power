@@ -2,6 +2,8 @@ import { Fragment, useState, useEffect } from 'react';
 import profileStyle from '../Profile/Profile.module.css'
 import services from '../../server/service'
 import { Link } from "react-router-dom";
+import sadFace from './helpers/sad.png';
+
 
 export default () => {
     const [allWorkouts, setallWorkouts] = useState([]);
@@ -84,9 +86,9 @@ export default () => {
                     </Link>
                 );
             }) :
-                <div>
-                    <h1>There are no any workouts here :(</h1>
-                    <h2>Yet ;)</h2>
+                <div className={profileStyle.emptyPageContainer}>
+                    <h1>No Logs Yet!</h1>
+                    <img src={sadFace} alt="" />
                 </div>
             }
         </Fragment >

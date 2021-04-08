@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import profileStyle from '../Profile/Profile.module.css'
 import { Link } from "react-router-dom";
 import services from '../../server/service'
+import sadFace from './helpers/sad.png';
 
 export default () => {
     const [allRoutines, setAllRoutines] = useState([]);
@@ -35,7 +36,7 @@ export default () => {
         <Fragment>
 
 
-            {allRoutines ? Object.entries(allRoutines).map(el => {
+            {Object.keys(allRoutines).length !== 0 ? Object.entries(allRoutines).map(el => {
                 return (
 
                     <Link key={el[1].routineId} className="linkWithoutStyles" to={`/userProfile/doRoutine/${el[1].routineId}`}>
@@ -56,7 +57,10 @@ export default () => {
                         </div>
                     </Link>
                 );
-            }) : <h2>There are no any routines :(</h2>}
+            }) : <div className={profileStyle.emptyPageContainer}>
+                <h1>No Rotines Yet!</h1>
+                <img src={sadFace} alt="" />
+            </div>}
 
             <div id={profileStyle.addRoutine}>
                 <Link to="/userProfile/addRoutine">

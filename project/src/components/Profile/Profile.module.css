@@ -332,3 +332,18 @@
 .removeButtonContainer button:hover {
     padding: 10px 20px 10px;
 }
+
+.emptyPageContainer {
+    justify-content: center;
+}
+
+.emptyPageContainer img {
+    width: 200px;
+    margin-top: 20px;
+}
+
+.emptyPageContainer h1 {
+    color: #59c4e1;
+    font-size: calc(25pt - 1pt);
+    font-family: "Raleway-semibold";
+}

@@ -16,6 +16,9 @@ export default class extends Component {
         e.preventDefault();
         let exerciseName = e.target.exerciseName.value;
         let sets = e.target.sets.value;
+        if (exerciseName.length > 15 || Number(sets) > 10) {
+            return;
+        }
         let id = uniqid();
         let allExercises = this.state.exercises;
         allExercises.push({ exerciseName, sets, id })
@@ -41,9 +44,6 @@ export default class extends Component {
                     >
                         Add
                 </button>
-
-
-
 
                 </form>
 
