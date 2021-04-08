@@ -3,7 +3,7 @@ import profileStyle from '../Profile/Profile.module.css'
 import { Link } from "react-router-dom";
 import services from '../../server/service'
 import history from '../history'
-
+import RemoveOption from './RemoveЕxerciseButton';
 
 export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
     const [allExercises, setExercise] = useState({});
@@ -29,6 +29,17 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
                 return state;
             })
         }
+    }
+    function removeExercise(e) {
+        e.preventDefault();
+
+        let exerciseId = e.target.parentNode.id;
+        let exercises = allExercises;
+        let newExercises = exercises.filter(el => el[0].id != exerciseId)
+
+        setExercise(newExercises);
+
+
     }
 
     function saveRoutine(e) {
@@ -56,8 +67,11 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
                 <br />
                 <hr />
                 <div>
+
                     {Object.values(allExercises).map(el => {
+                        { console.log(el) }
                         return (
+
                             <div key={el[0].id} className={profileStyle.logContainer}>
                                 <div className={profileStyle.date}>
                                     <h1>
@@ -69,8 +83,12 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
                                         Sets:  {el[0].sets}
                                     </h1>
                                 </div>
-
+                                <span id={el[0].id} className={profileStyle.removeButtonContainer}>
+                                    <button onClick={(e) => removeExercise(e)}>Remove</button>
+                                </span>
                             </div>
+
+
                         );
                     })}
                 </div>
