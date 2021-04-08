@@ -5,7 +5,7 @@
 ## What is this about for?
 
 **Track Power** is a React single page application. \
-That is inspired from a mobile app called RepCout. \
+That is inspired from a mobile app called RepCount. \
 This app is made for people who train and want to track.\
 there strength of the exercises they do.
 
