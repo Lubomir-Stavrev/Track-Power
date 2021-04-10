@@ -15,24 +15,24 @@ export default (props) => {
     const [routineId, setRoutineId] = useState('');
 
     useEffect(() => {
-        console.log('mount')
+
         setRoutineData()
 
         return () => {
-            console.log('umount')
+
         }
     }, [])
 
 
     function setRoutineData() {
         let routineId = props.location.pathname.split('/')[3];
-        console.log('Right after WOW')
+
         setRoutineId(old => routineId);
 
         saveExercisesAndSets(routineId)
         services.getRoutine(routineId)
             .then(res => {
-                console.log(res);
+
                 if (res.routineExercises) {
 
                     setExercises(old => res.routineExercises);
@@ -85,7 +85,7 @@ export default (props) => {
                 <input
                     type="text"
                     name="routineName"
-                    value={routine[0] || ''}
+                    defaultValue={routine[0] || ''}
                     placeholder="Name"
                     readOnly={true}
                 />

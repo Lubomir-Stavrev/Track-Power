@@ -4,18 +4,18 @@ import profileLogs from './ProfileLogs.module.css'
 import services from '../../../server/service'
 import { Link } from "react-router-dom";
 import sadFace from '../profileImages/sad.png';
-
+import moment from 'moment'
 
 export default () => {
-    const [allWorkouts, setallWorkouts] = useState([]);
+    const [allWorkouts, setAllWorkouts] = useState([]);
 
     useEffect(async () => {
-        console.log('Hi =>');
+
         let data = await setRoutineData()
-        setallWorkouts(data)
+        setAllWorkouts(data)
 
         return () => {
-            console.log('bye bye')
+
         }
     }, [])
 
@@ -27,7 +27,7 @@ export default () => {
                     if (el[1].allWorkouts) {
                         Object.entries(el[1].allWorkouts)
                             .forEach(nel => {
-                                console.log(nel)
+
                                 let date = (nel[1].exercises[nel[1].exercises.length - 1].logDate.dateNow);
                                 let name = el[1].routineName;
 
@@ -38,7 +38,18 @@ export default () => {
                     }
                 })
             }).catch(err => { console.log(err) })
-        return await workouts;
+        const Moment = require('moment')
+        const array = await workouts;
+
+        const sortedWorkouts = Object.values(array).sort((a, b) => new Moment(a.date).format('MMM Do HH mm') - new Moment(b.date).format('MMM Do HH mm')).reverse()
+        let allWorkouts = Object.values(sortedWorkouts).map(el => {
+            let splitedNewDate = el.date.split(' ').slice(0, 2);
+            let newDate = splitedNewDate[0] + ' ' + splitedNewDate[1];
+            el.date = newDate
+            return el;
+        })
+
+        return await allWorkouts;
     }
     async function deleteWorkout(e) {
         e.preventDefault();
@@ -48,7 +59,7 @@ export default () => {
         try {
             let res = await services.deleteWorkout(routineId, workoutId)
             let rotineData = await setRoutineData()
-            setallWorkouts(old => rotineData)
+            setAllWorkouts(old => rotineData)
 
         } catch (err) {
             console.log(err);

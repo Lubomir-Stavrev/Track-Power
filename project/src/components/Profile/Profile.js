@@ -8,7 +8,7 @@ import AddRoutine from './AddRoutine/AddRoutine'
 import DoRoutine from './DoRoutine/DoRoutine'
 import WorkoutLog from './WorkoutLog/WorkoutLog'
 import NotFoundPage from '../notFound/NotFoundPage'
-import { Icon, InlineIcon } from '@iconify/react';
+import { Icon } from '@iconify/react';
 import dumbbellIcon from '@iconify-icons/mdi/dumbbell';
 
 
@@ -16,12 +16,11 @@ import AddExercise from './AddRoutine/AddExercise'
 
 const Profile = () => {
     const [allExercises, setExercise] = useState([]);
-    const [routineProps, setRoutineProps] = useState([]);
+    const [routineProps, setRoutineProps] = useState('');
     const [isRoutineActive, setIsRoutineActive] = useState(false);
     const [isLogActive, setIsLogActive] = useState(false);
     const history = useHistory()
     useEffect(() => {
-        console.log('mount from Profile')
 
         let urlPath = window.location.href.split('/')[4];
 
@@ -33,7 +32,7 @@ const Profile = () => {
             setIsLogActive(true);
         }
         return () => {
-            console.log('umount')
+
         }
     }, [history])
     function getEmail() {
@@ -49,9 +48,11 @@ const Profile = () => {
         setExercise(all);
     }
 
-    function handleAddingRoutineProps(name, notes) {
+    function handleAddingRoutineProps(name, exercises) {
 
-        setRoutineProps([name, notes]);
+        setRoutineProps(name);
+        setExercise(exercises);
+
     }
     function handleSave() {
         setExercise([]);

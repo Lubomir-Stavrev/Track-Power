@@ -6,10 +6,10 @@ export default ({ onRemove, id }) => {
     const [removeButtonState, setRemoveButtonState] = useState('none');
 
     useEffect(() => {
-        console.log('mount from button');
+
 
         return () => {
-            console.log('unmount from button');
+
         }
     }, []);
 
@@ -20,7 +20,7 @@ export default ({ onRemove, id }) => {
 
         services.removeExerciseFromRoutine(id, routineId)
             .then(data => {
-                console.log(data);
+
                 setRemoveButtonState('none')
                 onRemove();
 

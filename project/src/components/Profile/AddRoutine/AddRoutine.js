@@ -11,7 +11,7 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
 
     useEffect(() => {
         setExercise(props);
-        setRoutineName(routineProps[0]);
+        setRoutineName(routineProps);
 
         return () => {
             console.log('unmount')
@@ -24,8 +24,7 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
         if (e.target.name == 'routineName') {
             setRoutineName(e.target.value)
             setRoutineName(state => {
-
-                onAddingRoutineProps(state);
+                onAddingRoutineProps(state, allExercises);
                 return state;
             })
         }
@@ -37,7 +36,13 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
         let exercises = allExercises;
         let newExercises = exercises.filter(el => el[0].id != exerciseId)
 
-        setExercise(newExercises);
+        setExercise(old => {
+            setRoutineName(state => {
+                onAddingRoutineProps(state, newExercises);
+                return state;
+            })
+            return newExercises;
+        });
 
 
     }
@@ -69,7 +74,7 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
                 <div>
 
                     {Object.values(allExercises).map(el => {
-                        { console.log(el) }
+
                         return (
 
                             <div key={el[0].id} className={profile.logContainer}>

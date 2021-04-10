@@ -9,11 +9,10 @@ export default () => {
     const [allRoutines, setAllRoutines] = useState([]);
     useEffect(async () => {
 
-        console.log('HEllo');
         let data = await getRoutines();
         setAllRoutines(data);
         return () => {
-            console.log('bye ')
+
         }
     }, [])
 

@@ -8,7 +8,7 @@ export default class extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.oldState = {
             exercises: [],
         }
         this.addExercise = this.addExercise.bind(this);
@@ -21,16 +21,14 @@ export default class extends Component {
             return;
         }
         let id = uniqid();
-        let allExercises = this.state.exercises;
+
+        let allExercises = this.oldState.exercises;
         allExercises.push({ exerciseName, sets, id })
 
         this.props.onAddingExercise(allExercises);
         return history.push("/userProfile/addRoutine");
-
     }
     render() {
-
-
         return (
             <Fragment>
                 <form onSubmit={(e) => this.addExercise(e)} className={profile.addExerciseForm}>
@@ -47,7 +45,6 @@ export default class extends Component {
                 </button>
 
                 </form>
-
             </Fragment>
         );
     }

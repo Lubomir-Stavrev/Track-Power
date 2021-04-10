@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment } from 'react';
 import services from '../../../server/service'
 import moment from 'moment'
 
@@ -28,7 +28,7 @@ export default {
             }
             exercisesData.push({ exerciseSets, id: allTables[j].id });
         }
-        let dateNow = moment().format('MMM Do');
+        let dateNow = moment().format('MMM Do HH mm');
         exercisesData.push({ logDate: { dateNow } })
 
 
