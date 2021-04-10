@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react';
-import profileStyle from '../Profile/Profile.module.css'
-import services from '../../server/service'
+import profile from '../Profile.module.css'
+import services from '../../../server/service'
 
 export default (props) => {
 
@@ -79,7 +79,7 @@ export default (props) => {
 
     return (
         <Fragment>
-            <form className={profileStyle.addExerciseForm} >
+            <form className={profile.addExerciseForm} >
                 <input
                     type="text"
                     name="routineName"
@@ -97,7 +97,7 @@ export default (props) => {
 
 
                             return (
-                                <div key={el[0].id} id={el[0].id} className={profileStyle.exerciseContainer}>
+                                <div key={el[0].id} id={el[0].id} className={profile.exerciseContainer}>
                                     <div>
                                         <h1>
                                             {el[0].exerciseName}

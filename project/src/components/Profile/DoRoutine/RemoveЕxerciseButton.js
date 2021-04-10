@@ -1,7 +1,7 @@
-import { Fragment, useState, useEffect } from 'react';
-import profileStyle from '../Profile/Profile.module.css'
-import service from '../../server/service'
-import history from '../history';
+import { useState, useEffect } from 'react';
+import removeExerciseStyle from './RemoveExercise.module.css';
+import services from '../../../server/service'
+
 export default ({ onRemove, id }) => {
     const [removeButtonState, setRemoveButtonState] = useState('none');
 
@@ -18,7 +18,7 @@ export default ({ onRemove, id }) => {
 
         let routineId = window.location.pathname.split('/')[3];
 
-        service.removeExerciseFromRoutine(id, routineId)
+        services.removeExerciseFromRoutine(id, routineId)
             .then(data => {
                 console.log(data);
                 setRemoveButtonState('none')
@@ -32,12 +32,12 @@ export default ({ onRemove, id }) => {
     }
 
     return (
-        <div className={profileStyle.optionContainer}>
+        <div className={removeExerciseStyle.optionContainer}>
             <span onClick={(e) => removeButtonState == 'block'
                 ? setRemoveButtonState('none') : setRemoveButtonState('block')}>
                 &#8942;
                                         </span>
-            <div style={{ display: removeButtonState }} className={profileStyle.dropDownRemoveButtonContainer}>
+            <div style={{ display: removeButtonState }} className={removeExerciseStyle.dropDownRemoveButtonContainer}>
                 <button onClick={(e) => removeExercise(e)}>Remove</button>
             </div>
         </div>

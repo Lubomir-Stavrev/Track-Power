@@ -1,8 +1,8 @@
 import { Fragment, useState, useEffect } from 'react';
-import profileStyle from '../Profile/Profile.module.css'
-import services from '../../server/service'
-import history from '../history'
-import dataProcessing from './helpers/DoRoutineDataProcess'
+import profile from '../Profile.module.css'
+import history from '../../history'
+import dataProcessing from '../helpers/DoRoutineDataProcess'
+import services from '../../../server/service'
 
 import RemoveExerciseButton from './RemoveЕxerciseButton';
 
@@ -81,7 +81,7 @@ export default (props) => {
     }
     return (
         <Fragment>
-            <form onSubmit={(e) => saveWorkout(e)} className={profileStyle.addExerciseForm} >
+            <form onSubmit={(e) => saveWorkout(e)} className={profile.addExerciseForm} >
                 <input
                     type="text"
                     name="routineName"
@@ -92,7 +92,7 @@ export default (props) => {
                 <br />
                 <input type="text" defaultValue={noteRoutine || ''} name="notes" placeholder="Notes" />
                 <br />
-                <button type="submit" className={profileStyle.saveButton}>Save Workout</button>
+                <button type="submit" className={profile.saveButton}>Save Workout</button>
                 <br />
                 <hr />
                 <div>
@@ -106,7 +106,7 @@ export default (props) => {
 
                                     <div key={el[0].id}
 
-                                        id={el[0].id} className={profileStyle.exerciseContainer}>
+                                        id={el[0].id} className={profile.exerciseContainer}>
                                         <div>
                                             <h1>
                                                 {el[0].exerciseName}

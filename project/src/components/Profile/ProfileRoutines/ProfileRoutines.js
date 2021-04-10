@@ -1,8 +1,9 @@
 import { Fragment, useEffect, useState } from "react";
-import profileStyle from '../Profile/Profile.module.css'
+import profile from '../Profile.module.css'
+import profileRoutines from './ProfileRoutines.module.css'
 import { Link } from "react-router-dom";
-import services from '../../server/service'
-import sadFace from './helpers/sad.png';
+import services from '../../../server/service'
+import sadFace from '../profileImages/sad.png';
 
 export default () => {
     const [allRoutines, setAllRoutines] = useState([]);
@@ -40,29 +41,29 @@ export default () => {
                 return (
 
                     <Link key={el[1].routineId} className="linkWithoutStyles" to={`/userProfile/doRoutine/${el[1].routineId}`}>
-                        <div key={el[1].routineId} className={profileStyle.logContainer}>
-                            <div className={profileStyle.workoutName}>
+                        <div key={el[1].routineId} className={profile.logContainer}>
+                            <div className={profile.workoutName}>
                                 <h1>
                                     {el[1].routineName}
                                 </h1>
                             </div>
 
-                            <div className={profileStyle.routineSettings}>
+                            <div className={profileRoutines.routineSettings}>
                                 <span>
                                     <a id={el[1].routineId}>
-                                        <button type="submit" onClick={(e) => deleteRoutine(e)} className={profileStyle.deleteButton}>Delete</button>
+                                        <button type="submit" onClick={(e) => deleteRoutine(e)} className={profileRoutines.deleteButton}>Delete</button>
                                     </a>
                                 </span>
                             </div>
                         </div>
                     </Link>
                 );
-            }) : <div className={profileStyle.emptyPageContainer}>
+            }) : <div className={profile.emptyPageContainer}>
                 <h1>No Rotines Yet!</h1>
                 <img src={sadFace} alt="" />
             </div>}
 
-            <div id={profileStyle.addRoutine}>
+            <div id={profileRoutines.addRoutine}>
                 <Link to="/userProfile/addRoutine">
                     <span>
                         +

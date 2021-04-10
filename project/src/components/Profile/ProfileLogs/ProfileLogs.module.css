@@ -1,0 +1,27 @@
+.deleteButton {
+    border: #202020;
+    color: #202020;
+    background: #59c4e1;
+    border-radius: 20px;
+    font-size: calc(30pt - 20pt);
+    padding: 10px 15px 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 3%;
+}
+
+.deleteButton:hover {
+    border: #59c4e1;
+    color: #59c4e1;
+    background: #202020;
+}
+
+.routineSettings {
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    z-index: 100;
+}

@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
-
-import profileStyle from '../Profile/Profile.module.css'
-import history from '../history'
+import profile from '../Profile.module.css'
+import history from '../../history'
 import uniqid from 'uniqid'
+
+
 export default class extends Component {
     constructor(props) {
         super(props);
@@ -32,7 +33,7 @@ export default class extends Component {
 
         return (
             <Fragment>
-                <form onSubmit={(e) => this.addExercise(e)} className={profileStyle.addExerciseForm}>
+                <form onSubmit={(e) => this.addExercise(e)} className={profile.addExerciseForm}>
                     <input type="text" name="exerciseName" placeholder="Exercise Name" />
                     <br />
                     <input type="number" name="sets" placeholder="Sets" />

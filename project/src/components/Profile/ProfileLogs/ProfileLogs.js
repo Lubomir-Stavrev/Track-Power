@@ -1,8 +1,9 @@
 import { Fragment, useState, useEffect } from 'react';
-import profileStyle from '../Profile/Profile.module.css'
-import services from '../../server/service'
+import profile from '../Profile.module.css'
+import profileLogs from './ProfileLogs.module.css'
+import services from '../../../server/service'
 import { Link } from "react-router-dom";
-import sadFace from './helpers/sad.png';
+import sadFace from '../profileImages/sad.png';
 
 
 export default () => {
@@ -61,23 +62,23 @@ export default () => {
 
                 return (
                     <Link key={el.workoutId} className='linkWithoutStyles' to={`/userProfile/log/${el.routineId}/${el.workoutId}`}>
-                        <div key={el.workoutId} className={profileStyle.logContainer} >
-                            <div className={profileStyle.workoutName}>
+                        <div key={el.workoutId} className={profile.logContainer} >
+                            <div className={profile.workoutName}>
                                 <h1>
                                     {el.name}
 
                                 </h1>
                             </div>
-                            <div className={profileStyle.date}>
+                            <div className={profile.date}>
                                 <h1>
                                     {el.date}
 
                                 </h1>
                             </div>
-                            <div className={profileStyle.routineSettings}>
+                            <div className={profileLogs.routineSettings}>
                                 <span>
                                     <a id={el.routineId + '/' + el.workoutId}>
-                                        <button type="submit" onClick={(e) => deleteWorkout(e)} className={profileStyle.deleteButton}>Delete</button>
+                                        <button type="submit" onClick={(e) => deleteWorkout(e)} className={profileLogs.deleteButton}>Delete</button>
                                     </a>
                                 </span>
                             </div>
@@ -86,7 +87,7 @@ export default () => {
                     </Link>
                 );
             }) :
-                <div className={profileStyle.emptyPageContainer}>
+                <div className={profile.emptyPageContainer}>
                     <h1>No Logs Yet!</h1>
                     <img src={sadFace} alt="" />
                 </div>

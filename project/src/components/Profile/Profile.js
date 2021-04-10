@@ -1,19 +1,18 @@
 import { Fragment, useState, useEffect } from 'react';
 import { Switch, Route, Link, useHistory } from "react-router-dom";
-import history from '../history'
 import style from '../BackroundTemplate/BackroundTemplate.module.css'
 import profileStyle from '../Profile/Profile.module.css'
-import ProfileLogs from './ProfileLogs'
-import ProfileRoutines from './ProfileRoutines'
-import AddRoutine from './AddRoutine'
-import DoRoutine from './DoRoutine'
-import WorkoutLog from './WorkoutLog'
+import ProfileLogs from './ProfileLogs/ProfileLogs'
+import ProfileRoutines from './ProfileRoutines/ProfileRoutines'
+import AddRoutine from './AddRoutine/AddRoutine'
+import DoRoutine from './DoRoutine/DoRoutine'
+import WorkoutLog from './WorkoutLog/WorkoutLog'
 import NotFoundPage from '../notFound/NotFoundPage'
 import { Icon, InlineIcon } from '@iconify/react';
 import dumbbellIcon from '@iconify-icons/mdi/dumbbell';
 
 
-import AddExercise from './AddExercise'
+import AddExercise from './AddRoutine/AddExercise'
 
 const Profile = () => {
     const [allExercises, setExercise] = useState([]);

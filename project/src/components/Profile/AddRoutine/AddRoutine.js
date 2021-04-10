@@ -1,9 +1,9 @@
 import { Fragment, useState, useEffect } from 'react';
-import profileStyle from '../Profile/Profile.module.css'
+import profile from '../Profile.module.css'
+import addStyle from './Add.module.css';
 import { Link } from "react-router-dom";
-import services from '../../server/service'
-import history from '../history'
-import RemoveOption from './RemoveЕxerciseButton';
+import history from '../../history'
+import services from '../../../server/service'
 
 export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
     const [allExercises, setExercise] = useState({});
@@ -58,12 +58,12 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
     }
     return (
         <Fragment>
-            <form className={profileStyle.addExerciseForm} >
+            <form className={profile.addExerciseForm} >
                 <input type="text" name="routineName"
                     value={routineName}
                     onChange={(e) => handleRoutineChange(e)} placeholder="Name" />
                 <br />
-                <button type="button" onClick={(e) => saveRoutine(e)} className={profileStyle.saveButton}>Save</button>
+                <button type="button" onClick={(e) => saveRoutine(e)} className={profile.saveButton}>Save</button>
                 <br />
                 <hr />
                 <div>
@@ -72,18 +72,18 @@ export default ({ props, onAddingRoutineProps, routineProps, onSaving }) => {
                         { console.log(el) }
                         return (
 
-                            <div key={el[0].id} className={profileStyle.logContainer}>
-                                <div className={profileStyle.date}>
+                            <div key={el[0].id} className={profile.logContainer}>
+                                <div className={profile.date}>
                                     <h1>
                                         {el[0].exerciseName}
                                     </h1>
                                 </div>
-                                <div className={profileStyle.workoutName}>
+                                <div className={profile.workoutName}>
                                     <h1>
                                         Sets:  {el[0].sets}
                                     </h1>
                                 </div>
-                                <span id={el[0].id} className={profileStyle.removeButtonContainer}>
+                                <span id={el[0].id} className={addStyle.removeButtonContainer}>
                                     <button onClick={(e) => removeExercise(e)}>Remove</button>
                                 </span>
                             </div>
