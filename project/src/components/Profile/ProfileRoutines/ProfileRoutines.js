@@ -10,7 +10,9 @@ export default () => {
     useEffect(async () => {
 
         let data = await getRoutines();
-        setAllRoutines(data);
+        if (data) {
+            setAllRoutines(data);
+        }
         return () => {
 
         }
@@ -30,7 +32,8 @@ export default () => {
 
         let res = await services.deleteRoutine(routineId);
         let rotineData = await getRoutines();
-        setAllRoutines(old => rotineData);
+        if (rotineData) setAllRoutines(old => rotineData)
+        else setAllRoutines([]);
     }
     return (
         <Fragment>

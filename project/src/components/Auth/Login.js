@@ -13,7 +13,7 @@ export default () => {
         let loginEmail = e.target.email.value;
         let loginPassword = e.target.password.value;
         let loginUsername = e.target.username.value;
-        if (loginUsername.length <= 4) {
+        if (loginUsername.length < 4) {
             setErrorMessage('The username should be at least 4 characters long!')
             return;
         } else if (loginUsername.length > 13) {
