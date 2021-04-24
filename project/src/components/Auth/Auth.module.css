@@ -49,10 +49,10 @@
     outline: 0;
     font-size: calc(1.5rem - 9px);
     transition: border-color 0.2s;
-    -webkit-transition: border-color 0.2s;
-    -moz-transition: border-color 0.2s;
-    -ms-transition: border-color 0.2s;
-    -o-transition: border-color 0.2s;
+    -webkit-transition: 22;
+    -moz-transition: 22;
+    -ms-transition: 22;
+    -o-transition: 22;
     width: calc(46% + 55px);
     border-bottom: 2px solid #59c4e1;
     color: #59c4e1;

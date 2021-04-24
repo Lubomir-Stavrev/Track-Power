@@ -16,7 +16,7 @@ function Home(props) {
         <Fragment>
 
             <div className={style.title}>
-                Welcom to<span className={style.highlight}> Track Power</span>.
+                Welcome to<span className={style.highlight}> Track Power</span>.
                             </div>
             <div>
                 {isLogged ?
